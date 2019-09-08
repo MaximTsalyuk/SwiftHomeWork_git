@@ -24,3 +24,5 @@ var second = 5
 
 let newString = stringVariable+characterConst+String(first+second)
 print(newString)
+
+//git
