@@ -25,51 +25,84 @@
 
 import Foundation
 
-func checkStack (_ currentString: String) {
-    var newStack = Stack()
-    var firstElementFound: Bool = false
-    
-    
-    for character in currentString
-    {
-        newStack.push(character)
-    }
-    
+// Массивы с элементами которые нужно проверять и примерами
+let exampleFirstElementsArray: [Character] = ["(", "[", "{"]
+let exampleSecondElementsArray: [Character] = [")", "]", "}"]
+let exampleArray: [String] = ["(2+5) - 8 * (4-5)", "3 * ((7-2) / 3) - 5 + (3 - (4 +9)) - 1", "()()(()-45)", ")(", "((7-9)", "(6-9) + (3(", "2-(3+[2-1]) * {3-1} + {[(30 - 2) * 2] +8}", "[]{}()", "{[]}({})", "{(})", "[()[{]}]"]
+
+
+// Превращаем строку примера в массив чисел по типу стек
+func StringToArray (_ currentString: String) -> [Character] {
+    var currentStringRemovable = currentString
+    var currentArray: [Character] = []
     
     for _ in 0..<currentString.count
     {
-        if (newStack.pop() == ")" && firstElementFound == false) {
-            firstElementFound = true
-        } else if (newStack.pop() == "(" && firstElementFound == true) {
-            firstElementFound = false
+        currentArray.append(currentStringRemovable.removeFirst())
+    }
+    
+    return currentArray
+}
+
+
+// Проверяем строки
+func CheckString (_ currentArray: [Character]) -> Bool {
+    var completionStatus: Bool = false
+    
+    for index in 0..<3
+    {
+        var currentArrayRemovable: [Character] = currentArray
+        var suitubleFirstElementsCount = 0
+        var suitubleSecondElementsCount = 0
+        
+        var suitubleElementsArray:[Character] = []
+        
+        if (index == 0) {
+            while (currentArrayRemovable.isEmpty != true) {
+                if (currentArrayRemovable.first == exampleFirstElementsArray[index]) {
+                    suitubleElementsArray.append(exampleFirstElementsArray[index])
+                    suitubleFirstElementsCount += 1
+                } else if (suitubleElementsArray.isEmpty == false && currentArrayRemovable.first == exampleSecondElementsArray[index]) {
+                    suitubleElementsArray.append(exampleSecondElementsArray[index])
+                    suitubleSecondElementsCount += 1
+                }
+                currentArrayRemovable.removeFirst()
+            }
+        } else {
+            while (currentArrayRemovable.isEmpty != true) {
+                if (currentArrayRemovable.first == exampleFirstElementsArray[index]) {
+                    suitubleElementsArray.append(exampleFirstElementsArray[index])
+                    suitubleFirstElementsCount += 1
+                } else if (suitubleElementsArray.isEmpty == false && currentArrayRemovable.first == exampleSecondElementsArray[index] && suitubleElementsArray[suitubleElementsArray.count-1] == exampleFirstElementsArray[index]) {
+                    suitubleElementsArray.append(exampleSecondElementsArray[index])
+                    suitubleSecondElementsCount += 1
+                }
+                currentArrayRemovable.removeFirst()
+            }
+        }
+        
+        if (suitubleElementsArray.isEmpty == true || suitubleElementsArray[suitubleElementsArray.count-1] == exampleSecondElementsArray[index]) {
+            if (suitubleFirstElementsCount == suitubleSecondElementsCount) {
+                completionStatus = true
+            } else {
+                completionStatus = false
+                break
+            }
+        } else {
+            completionStatus = false
+            break
         }
     }
     
-    
-    if (firstElementFound == false) {
-        print("\(currentString) - Правильно")
-    } else {
-        print("\(currentString) - Неправильно")
-    }
+    return completionStatus
 }
 
-
-struct Stack {
-    private var items: [Character] = []
-    
-    func peek () -> Character {
-        guard let topElement = items.first else {fatalError("Stack is empty!")}
-        return topElement
-    }
-    
-    mutating func pop () -> Character {
-        return items.removeFirst()
-    }
-    
-    mutating func push (_ element: Character) {
-        items.insert(element, at: 0)
-    }
+// Выводим на экран
+for index in 0..<exampleArray.count
+{
+    if (CheckString(StringToArray(exampleArray[index]))) {
+            print("\(exampleArray[index]) - Правильно")
+        } else {
+            print("\(exampleArray[index]) - Неправильно")
+        }
 }
-
-
-checkStack("(2+5) - 8 * (4-5)")

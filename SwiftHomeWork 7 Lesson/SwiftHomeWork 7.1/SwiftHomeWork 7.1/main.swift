@@ -15,6 +15,7 @@
 
 import Foundation
 
+var numbersArray: [Int] = []
 var playerWhoWon: Int = 0
 var numOfPlayers: Int? = nil
 var sizeOfBag: Int? = nil
@@ -49,9 +50,9 @@ func newTurn () {
         print("На столе: [\(randomNumber!)]")
     }
     checkWinCondition(currentNumber: randomNumber!)
-    bag.remove(randomNumber!)
-    
-    showTurn()
+        bag.remove(randomNumber!)
+        numbersArray.append(randomNumber!)
+        showTurn()
 }
 
 
@@ -65,14 +66,27 @@ func checkWinCondition (currentNumber: Int)
             break
         } else if (winningPlayersArrayCondition[index].contains(currentNumber)) {
             winningPlayersArrayCondition[index].remove(currentNumber)
+            if (winningPlayersArrayCondition[index].isEmpty) {
+                gameOver = true
+                playerWhoWon = index + 1
+                break
+            }
         }
     }
 }
 
 func showTurn () {
+        if (numbersArray.isEmpty == false) {
+            print(numbersArray)
+        }
+    
             for index in 0..<playersArray.count
             {
-                print("\(index+1): \(playersArray[index]) - Открыто: \(sizeOfTicket! - winningPlayersArrayCondition[index].count) из \(sizeOfTicket!) - осталось: \(winningPlayersArrayCondition[index])")
+                if (winningPlayersArrayCondition[index].isEmpty) {
+                    print("\(index+1): \(playersArray[index]) - Открыто: \(sizeOfTicket! - winningPlayersArrayCondition[index].count) из \(sizeOfTicket!) - Winner -")
+                } else {
+                    print("\(index+1): \(playersArray[index]) - Открыто: \(sizeOfTicket! - winningPlayersArrayCondition[index].count) из \(sizeOfTicket!) - осталось: \(winningPlayersArrayCondition[index])")
+                }
             }
     print("\n")
 }
@@ -87,7 +101,11 @@ func fillArray (array: inout Set <Int>, sizeOfArray: Int, isTicket: Bool) {
     } else {
             for _ in 0..<sizeOfArray
             {
-                array.insert(Int.random(in: 1...bag.count))
+                var randomTemp = Int.random(in: 1...bag.count)
+                repeat {
+                    randomTemp = Int.random(in: 1...bag.count)
+                } while (array.contains(randomTemp))
+                array.insert(randomTemp)
             }
             playersArray.append(array)
             winningPlayersArrayCondition.append(array)
@@ -127,4 +145,3 @@ print("Старт в мешке боченки от 1 до \(sizeOfBag!)!")
 while gameOver != true {
     newTurn()
 }
-print("Игрок \(playerWhoWon) выиграл!")
