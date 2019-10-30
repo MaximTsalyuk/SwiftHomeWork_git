@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewGame()
+        startNewGame(createManually: false)
     }
 
     
@@ -228,9 +228,8 @@ class ViewController: UIViewController {
     //Functions
     func DrawRoom (_ currentRoom: Room) {
         var newRoomString: String = ""
+
         
-        
-        if (newRoomString == "") {
         for lineIndex in 0..<currentRoom.height
         {
                 for columnIndex in 0..<currentRoom.width
@@ -259,15 +258,46 @@ class ViewController: UIViewController {
                 }
                 newRoomString += "\n"
             }
-        }
+
         roomTextLabel.text = newRoomString
         
         checkIfEndGame()
     }
     
 
-    func objectsCreation () {
-        
+    func objectsCreation (createManually: Bool) {
+        if createManually {
+                   var newRoomString = "🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫❌🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫📦🌫🌫🚧\n🚧🌫🌫🌫🌫🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🕺🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧"
+            var wallsTempArray: [WallTile] = []
+            
+            
+            for lineIndex in 0..<roomSize.height
+            {
+                for columnIndex in 0..<roomSize.width
+                {
+                    if (newRoomString.isEmpty != true) {
+                        let currentObject = newRoomString.removeFirst()
+                        if (currentObject == "❌") {
+                            currentWinningPosition.xCoordinate = columnIndex
+                            currentWinningPosition.yCoordinate = lineIndex
+                        }  else if (currentObject == "🕺") {
+                            currentPlayer.xCoordinate = columnIndex
+                            currentPlayer.yCoordinate = lineIndex
+                        }  else if (currentObject == "📦") {
+                            currentBox.xCoordinate = columnIndex
+                            currentBox.yCoordinate = lineIndex
+                        }  else if (currentObject == "🚧") {
+                            wallsTempArray.append(WallTile(xCoordinate: columnIndex, yCoordinate: lineIndex))
+                        }
+                    }
+                }
+                if (newRoomString.isEmpty != true) {
+                    newRoomString.removeFirst()
+                }
+            }
+            wallTileArray = wallsTempArray
+            
+        } else {
         //Player Creation
         var randomXValue = Int.random(in: 2...13)
         var randomYValue = Int.random(in: 2...7)
@@ -320,12 +350,13 @@ class ViewController: UIViewController {
                 }
             }
         }
-        wallTileArray = wallsTempArray
+            wallTileArray = wallsTempArray
+        }
     }
     
     
-    func startNewGame () {
-        objectsCreation()
+    func startNewGame (createManually: Bool) {
+        objectsCreation(createManually: createManually)
         DrawRoom(roomSize)
     }
     
@@ -336,7 +367,7 @@ class ViewController: UIViewController {
             
             let action = UIAlertAction (title: "OK", style: .default, handler: {
                 action in
-                self.startNewGame()
+                self.startNewGame(createManually: false)
             })
             
             alert.addAction(action)
