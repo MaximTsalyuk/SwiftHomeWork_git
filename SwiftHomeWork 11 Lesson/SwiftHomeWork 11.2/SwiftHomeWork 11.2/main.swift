@@ -47,6 +47,11 @@ class Matrix {
             self.matrixArray.append(tempArray)
         }
     }
+    
+    
+    func eraseMatrix () {
+            self.matrixArray.removeAll()
+    }
 }
 
 
@@ -79,8 +84,17 @@ extension Matrix {
     }
     
     
-    static func = (left: Matrix, right: Matrix) -> Matrix {
-    
+    static func += (left: Matrix, right: Matrix) {
+        left.eraseMatrix()
+        for lineIndex in 0..<right.height
+        {
+            var tempMatrix: [Int] = []
+            for columnIndex in 0..<right.width
+            {
+                tempMatrix.append(right.matrixArray[lineIndex][columnIndex])
+            }
+            left.matrixArray.append(tempMatrix)
+        }
     }
 }
 
@@ -103,3 +117,14 @@ var transMatrix = Matrix()
 transMatrix.matrixFill(width: 5, height: 6)
 print(transMatrix.matrixArray)
 print("\(transMatrix.transposed)\n")
+
+
+print("Приравнивание:")
+var equalMatrix1 = Matrix()
+equalMatrix1.matrixFill(width: 5, height: 5)
+print(equalMatrix1.matrixArray)
+var equalMatrix2 = Matrix()
+equalMatrix2.matrixFill(width: 5, height: 5)
+print(equalMatrix2.matrixArray)
+equalMatrix1 += equalMatrix2
+print("\(equalMatrix1.matrixArray)\n")
