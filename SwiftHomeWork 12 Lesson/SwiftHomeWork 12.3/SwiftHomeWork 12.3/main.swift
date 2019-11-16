@@ -31,36 +31,72 @@ class Person {
     let father: Person?
     let mother: Person?
     var brothersAndSisters: [Person]?
-    var hasChild: Int?
     var pets: [Animal]?
-    var children: [Person]?
+    var children: [Person] = []
     
     
-    init(father: Person?, mother: Person?, brothersAndSisters: [Person]?, hasChild: Int?, pets: [Animal]?) {
+    init(father: Person?, mother: Person?, brothersAndSisters: [Person]?, pets: [Animal]?) {
         self.father = father
-        self.father?.children?.append(self)
         self.mother = mother
-        self.mother?.children?.append(self)
+        self.mother?.children.append(self)
+        self.father?.children.append(self)
         self.brothersAndSisters = brothersAndSisters
-        self.hasChild = hasChild
         self.pets = pets
     }
     
     
     func countRelatives (family: [Person]) {
         var cousinsCount: Int = 0
+        var secondAuntsAndUnclesCount: Int = 0
         var secondCousinsCount: Int = 0
         var auntsAndUnclesCount: Int = 0
         if (self.father?.brothersAndSisters != nil) {
-            auntsAndUnclesCount += (self.father!.brothersAndSisters!.count - 1)
+            auntsAndUnclesCount += (self.father!.brothersAndSisters!.count)
+            for item in self.father!.brothersAndSisters!
+            {
+                if (item.children.isEmpty != true) {
+                    cousinsCount += (item.children.count)
+                }
+            }
         }
         if (self.mother?.brothersAndSisters != nil) {
-            auntsAndUnclesCount += (self.mother!.brothersAndSisters!.count - 1)
+            auntsAndUnclesCount += (self.mother!.brothersAndSisters!.count)
+            for item in self.mother!.brothersAndSisters!
+            {
+                //if (item.children.isEmpty != true) {
+                    cousinsCount += (item.children.count)
+                //}
+            }
         }
-        for item in family
-        {
-            
+        if (self.father?.father?.brothersAndSisters != nil) {
+            secondAuntsAndUnclesCount += (self.father!.father!.brothersAndSisters!.count)
+            for item in self.father!.father!.brothersAndSisters!
+            {
+                if (item.children.isEmpty != true) {
+                    for secondChildren in item.children
+                    {
+                        if (secondChildren.children.isEmpty != true) {
+                            secondCousinsCount += (secondChildren.children.count)
+                        }
+                    }
+                }
+            }
         }
+        if (self.mother?.mother?.brothersAndSisters != nil) {
+            secondAuntsAndUnclesCount += (self.mother!.mother!.brothersAndSisters!.count)
+            for item in self.mother!.mother!.brothersAndSisters!
+            {
+                if (item.children.isEmpty != true) {
+                    for secondChildren in item.children
+                    {
+                        if (secondChildren.children.isEmpty != true) {
+                            secondCousinsCount += (secondChildren.children.count)
+                        }
+                    }
+                }
+            }
+        }
+        print("CousinsCount: \(cousinsCount)\nSecondCousinsCount: \(secondCousinsCount)\nAuntsAndUnclesCount: \(auntsAndUnclesCount)\nSecondAuntsAndUnclesCount: \(secondAuntsAndUnclesCount)\n")
     }
 }
 
@@ -108,54 +144,57 @@ class Cat: Animal {
 
 
 // Mom's Dad Parents
-var Person15: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: nil)
-var Person16: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: nil)
+var Person15: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, pets: nil)
+var Person16: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, pets: nil)
 
 
 // Dad's Mom Parents
-var Person13: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: [Dog()])
-var Person14: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: nil)
+var Person13: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, pets: [Dog()])
+var Person14: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, pets: nil)
 
 
 // Mom's Mom Parents
-var Person11: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: [Parrot()])
-var Person12: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: nil)
+var Person11: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, pets: [Parrot()])
+var Person12: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, pets: nil)
 
 
 // Dad's Dad Parents
-var Person9: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: nil)
-var Person10: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, hasChild: 1, pets: [Dog()])
+var Person9: Men = Men(father: nil, mother: nil, brothersAndSisters: nil, pets: nil)
+var Person10: Women = Women(father: nil, mother: nil, brothersAndSisters: nil, pets: [Dog()])
 
 
 // Dad's Parents
-var Person7: Men = Men(father: Person9, mother: Person10, brothersAndSisters: nil, hasChild: 2, pets: nil)
-var Person8: Women = Women(father: Person13, mother: Person14, brothersAndSisters: nil, hasChild: 2, pets: nil)
+var Person7: Men = Men(father: Person9, mother: Person10, brothersAndSisters: nil, pets: nil)
+var Person8: Women = Women(father: Person13, mother: Person14, brothersAndSisters: nil, pets: nil)
 
 
 // Mom's Parents
-var Person5: Men = Men(father: Person15, mother: Person16, brothersAndSisters: nil, hasChild: 2, pets: [Dog()])
-var Person6: Women = Women(father: Person11, mother: Person12, brothersAndSisters: nil, hasChild: 2, pets: nil)
+var Person5: Men = Men(father: Person15, mother: Person16, brothersAndSisters: nil, pets: [Dog()])
+var Person6: Women = Women(father: Person11, mother: Person12, brothersAndSisters: nil, pets: nil)
 
 
 // Aunts and Uncles
-var Person3: Men = Men(father: Person7, mother: Person8, brothersAndSisters: nil, hasChild: nil, pets: [Parrot()])
-var Person4: Women = Women(father: Person5, mother: Person6, brothersAndSisters: nil, hasChild: nil, pets: [Cat()])
+var Person3: Men = Men(father: Person7, mother: Person8, brothersAndSisters: nil, pets: [Parrot()])
+var Person4: Women = Women(father: Person5, mother: Person6, brothersAndSisters: nil, pets: [Cat()])
 
 
 // Mother and Father
-var Person1: Men = Men(father: Person7, mother: Person8, brothersAndSisters: [Person3], hasChild: 1, pets: nil)
-var Person2: Women = Women(father: Person5, mother: Person6, brothersAndSisters: [Person4], hasChild: 1, pets: nil)
+var Person1: Men = Men(father: Person7, mother: Person8, brothersAndSisters: [Person3], pets: nil)
+var Person2: Women = Women(father: Person5, mother: Person6, brothersAndSisters: [Person4], pets: nil)
 Person3.brothersAndSisters?.append(Person1)
 Person4.brothersAndSisters?.append(Person2)
 
 
 
 // 0 Person Child
-var Person0: Men = Men(father: Person1, mother: Person2, brothersAndSisters: nil, hasChild: nil, pets: [Dog()])
+var Person0: Men = Men(father: Person1, mother: Person2, brothersAndSisters: nil, pets: [Dog()])
+var Person17: Women = Women(father: Person3, mother: nil, brothersAndSisters: nil, pets: nil)
 
 
 
 var family: [Person] = [Person0, Person1, Person2, Person3, Person4, Person5, Person6, Person7, Person8, Person9, Person10, Person11, Person12, Person13, Person14, Person15]
+Person0.countRelatives(family: family)
+
 
 var menCount = 0
 var womenCount = 0
@@ -177,6 +216,12 @@ for item in family
             petsArray.append(petsItem)
         }
     }
+//    if let pets = item.pets {
+//        for petsItem in pets
+//        {
+//            petsArray.append(petsItem)
+//        }
+//    }
 }
 print("Men Count: \(menCount)\nWomen Count: \(womenCount)\n")
 
