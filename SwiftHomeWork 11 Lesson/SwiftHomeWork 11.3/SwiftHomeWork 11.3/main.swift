@@ -1,7 +1,7 @@
 /*Выполнил:    Максим Цалюк
  Группа:    iOS 19-2
  Дата сдачи:    28.10.2019
- Номер задания: 11.1
+ Номер задания: 11.3
  Текст задания:
  11.3 (4 балла ) Создать класс Point2D, с переменными x,y типа Double.
  Создать класс Point3D, который наследуется от Point2D и имеет дополнительную переменную z типа Double.
@@ -47,7 +47,7 @@ class Segment: Shape {
     
     
     func length () -> Double {
-        return sqrt((self.b.x - self.a.x) + (self.b.y - self.a.y))
+        return sqrt(((self.b.x - self.a.x)*(self.b.x - self.a.x)) + ((self.b.y - self.a.y)*(self.b.y - self.a.y)))
     }
     
     
@@ -79,7 +79,7 @@ class Segment3D: Shape {
     
     
     func length () -> Double {
-        return sqrt((self.b.x - self.a.x) + (self.b.y - self.a.y) + (self.b.z - self.a.z))
+        return sqrt(((self.b.x - self.a.x)*(self.b.x - self.a.x)) + ((self.b.y - self.a.y)*(self.b.y - self.a.y)) + ((self.b.z - self.a.z)*(self.b.z - self.a.z)))
     }
     
     

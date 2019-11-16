@@ -41,13 +41,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //Enums
-    enum Directions {
-        case left
-        case right
-        case up
-        case down
-    }
+   
     
 
     //Outlets
@@ -69,160 +63,6 @@ class ViewController: UIViewController {
     }
 
     
-    struct Room {
-        var width: Int
-        var height: Int
-    }
-    
-    
-    struct Player {
-        var xCoordinate: Int
-        var yCoordinate: Int
-        
-        mutating func move (direction: Directions, room: Room, box: inout Box, wallArray: [WallTile]) {
-            switch direction {
-            case .up: var wallAhead: Bool = false
-                        for index in 0..<wallArray.count
-                        {
-                            if (wallArray[index].yCoordinate == (self.yCoordinate - 1) && wallArray[index].xCoordinate == self.xCoordinate) {
-                                wallAhead = true
-                                break
-                            }
-                        }
-            if (self.yCoordinate == 1 || wallAhead) {
-                    break
-            } else {
-                    self.yCoordinate -= 1
-                    if (self.yCoordinate == box.yCoordinate && self.xCoordinate == box.xCoordinate) {
-                            box.beingMoved(direction: .up, room: room, wallArray: wallArray)
-                    }
-                }
-            case .left: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == self.yCoordinate && wallArray[index].xCoordinate == (self.xCoordinate - 1)) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.xCoordinate == 1 || wallAhead) {
-                break
-            } else {
-                self.xCoordinate -= 1
-                    if (self.yCoordinate == box.yCoordinate && self.xCoordinate == box.xCoordinate) {
-                        box.beingMoved(direction: .left, room: room, wallArray: wallArray)
-                    }
-                }
-            case .right: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == self.yCoordinate && wallArray[index].xCoordinate == (self.xCoordinate + 1)) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.xCoordinate == (room.width - 2) || wallAhead) {
-                break
-            } else {
-                self.xCoordinate += 1
-                    if (self.yCoordinate == box.yCoordinate && self.xCoordinate == box.xCoordinate) {
-                        box.beingMoved(direction: .right, room: room, wallArray: wallArray)
-                    }
-                }
-            case .down: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == (self.yCoordinate + 1) && wallArray[index].xCoordinate == self.xCoordinate) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.yCoordinate == (room.height - 2) || wallAhead) {
-                break
-            } else {
-                self.yCoordinate += 1
-                    if (self.yCoordinate == box.yCoordinate && self.xCoordinate == box.xCoordinate) {
-                        box.beingMoved(direction: .down, room: room, wallArray: wallArray)
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    struct Box {
-        var xCoordinate: Int
-        var yCoordinate: Int
-        
-        mutating func beingMoved (direction: Directions, room: Room, wallArray: [WallTile]) {
-            switch direction {
-            case .up: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == (self.yCoordinate - 1) && wallArray[index].xCoordinate == self.xCoordinate) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.yCoordinate == 1 || wallAhead) {
-                break
-            } else {
-                self.yCoordinate -= 1
-                }
-            case .left: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == self.yCoordinate && wallArray[index].xCoordinate == (self.xCoordinate - 1)) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.xCoordinate == 1 || wallAhead) {
-                break
-            } else {
-                self.xCoordinate -= 1
-                }
-            case .right: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == self.yCoordinate && wallArray[index].xCoordinate == (self.xCoordinate + 1)) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.xCoordinate == (room.width - 2) || wallAhead) {
-                break
-            } else {
-                self.xCoordinate += 1
-                }
-            case .down: var wallAhead: Bool = false
-            for index in 0..<wallArray.count
-            {
-                if (wallArray[index].yCoordinate == (self.yCoordinate + 1) && wallArray[index].xCoordinate == self.xCoordinate) {
-                    wallAhead = true
-                    break
-                }
-            }
-            if (self.yCoordinate == (room.height - 2) || wallAhead) {
-                break
-            } else {
-                self.yCoordinate += 1
-                }
-            }
-        }
-    }
-    
-    
-    struct WallTile {
-        var xCoordinate: Int
-        var yCoordinate: Int
-    }
-    
-    
-    struct winnigPosition {
-        var xCoordinate: Int
-        var yCoordinate: Int
-    }
     
     
     //Functions
@@ -267,7 +107,18 @@ class ViewController: UIViewController {
 
     func objectsCreation (createManually: Bool) {
         if createManually {
-                   var newRoomString = "🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫❌🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫📦🌫🌫🚧\n🚧🌫🌫🌫🌫🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🕺🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧\n🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧"
+                   var newRoomString = """
+            🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
+            🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🌫🌫🌫❌🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫📦🌫🌫🚧
+            🚧🌫🌫🌫🌫🚧🚧🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🌫🌫🌫🌫🕺🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🌫🚧
+            🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
+            """
             var wallsTempArray: [WallTile] = []
             
             

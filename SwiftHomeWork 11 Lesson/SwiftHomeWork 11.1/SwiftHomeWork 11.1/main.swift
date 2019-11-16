@@ -31,6 +31,10 @@ class MyDate {
     func showData () {
         print("Day: \(self.day)\nMonth: \(self.month)\nYear: \(self.year)")
     }
+    
+    func description()-> String {
+        return "Day: \(self.day) Month: \(self.month) Year: \(self.year)"
+    }
 }
 
 
@@ -84,9 +88,9 @@ extension MyDate {
         var leftIsSmaller: Bool = false
         if (left.year < right.year) {
             leftIsSmaller = true
-        } else if (left.month < right.month) {
+        } else if (left.month < right.month && left.year == right.year) {
             leftIsSmaller = true
-        } else if (left.day < right.day) {
+        } else if (left.day < right.day && left.month == right.month && left.year == right.year) {
             leftIsSmaller = true
         }
         return leftIsSmaller
@@ -99,9 +103,9 @@ extension MyDate {
         var leftIsBigger: Bool = false
         if (left.year > right.year) {
             leftIsBigger = true
-        } else if (left.month > right.month) {
+        } else if (left.month > right.month && left.year == right.year) {
             leftIsBigger = true
-        } else if (left.day > right.day) {
+        } else if (left.day > right.day && left.month == right.month && left.year == right.year) {
             leftIsBigger = true
         }
         return leftIsBigger
@@ -111,7 +115,7 @@ extension MyDate {
 
 var currentDate = MyDate()
 var secondDate = MyDate()
-currentDate.setDate(day: 28, month: 10, year: 2019)
+currentDate.setDate(day: 2, month: 1, year: 2020)
 secondDate.setDate(day: 29, month: 09, year: 2019)
 print(currentDate - secondDate)
 
@@ -133,10 +137,26 @@ if (currentDate != secondDate) {
     print("Same Dates!")
 }
 
+currentDate.setDate(day: 2, month: 09, year: 2019)
+secondDate.setDate(day: 29, month: 09, year: 2019)
+
+
 if (currentDate < secondDate) {
     print("Second Date Bigger!")
+    print(currentDate.description() , " < ", secondDate.description())
 }
+else {
+    print(currentDate.description() , " >= ", secondDate.description())
+}
+
+currentDate.setDate(day: 2, month: 10, year: 2019)
+secondDate.setDate(day: 29, month: 09, year: 2019)
 
 if (currentDate > secondDate) {
     print("Current Date Bigger!")
+    print(currentDate.description() , " > ", secondDate.description())
 }
+else {
+    print(currentDate.description() , " <= ", secondDate.description())
+}
+

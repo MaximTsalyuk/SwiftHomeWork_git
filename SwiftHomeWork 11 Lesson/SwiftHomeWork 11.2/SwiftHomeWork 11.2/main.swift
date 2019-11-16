@@ -13,7 +13,9 @@
  Необходимо определить соответствующие операторы.
  */
 
+
 import Foundation
+
 
 class Matrix {
     var matrixArray: [[Int]] = []
@@ -42,58 +44,91 @@ class Matrix {
             var tempArray: [Int] = []
             for _ in 0..<width
             {
+                tempArray.append(0)
+            }
+            self.matrixArray.append(tempArray)
+        }
+    }
+    
+    func matrixFillRandom (width: Int, height: Int) {
+        self.width = width
+        self.height = height
+        for _ in 0..<height
+        {
+            var tempArray: [Int] = []
+            for _ in 0..<width
+            {
                 tempArray.append(Int.random(in: 1...9))
             }
             self.matrixArray.append(tempArray)
         }
     }
     
-    
     func eraseMatrix () {
-            self.matrixArray.removeAll()
+        self.matrixArray.removeAll()
+        self.width = 0
+        self.height = 0
     }
-}
 
-
-extension Matrix {
-    static func + (left: Matrix, right: Matrix) -> Matrix {
-        let tempMatrix = Matrix()
-        tempMatrix.matrixFill(width: left.width, height: left.height)
-        for lineIndex in 0..<left.height
-        {
-            for columnIndex in 0..<left.width
+    
+    subscript (lineIndex: Int, columnIndex: Int) -> Int {
+        get {
+            return self.matrixArray[lineIndex][columnIndex]
+        }
+        set (value) {
+            self.matrixArray[lineIndex][columnIndex] = value
+        }
+    }
+    
+    
+    static func + (left: Matrix, right: Matrix) -> Matrix? {
+        var tempMatrix: Matrix? = Matrix()
+        if (left.width == right.width && left.height == right.height) {
+            tempMatrix!.matrixFill(width: left.width, height: left.height)
+            for lineIndex in 0..<left.height
             {
-                tempMatrix.matrixArray[lineIndex][columnIndex] = left.matrixArray[lineIndex][columnIndex] + right.matrixArray[lineIndex][columnIndex]
+                for columnIndex in 0..<left.width
+                {
+                    tempMatrix!.matrixArray[lineIndex][columnIndex] = left.matrixArray[lineIndex][columnIndex] + right.matrixArray[lineIndex][columnIndex]
+                }
             }
+        } else {
+            tempMatrix = nil
         }
         return tempMatrix
     }
     
     
-    static func * (left: Matrix, right: Matrix) -> Matrix {
-        let tempMatrix = Matrix()
-        tempMatrix.matrixFill(width: left.width, height: left.height)
-        for lineIndex in 0..<left.height
-        {
-            for columnIndex in 0..<left.width
+    static func * (left: Matrix, right: Matrix) -> Matrix? {
+        var tempMatrix: Matrix? = Matrix()
+        if (left.width == right.height) {
+        tempMatrix!.matrixFill(width: right.width, height: left.height)
+            for lineIndex in 0..<left.height
             {
-                tempMatrix.matrixArray[lineIndex][columnIndex] = left.matrixArray[lineIndex][columnIndex] * right.matrixArray[lineIndex][columnIndex]
+                    for columnIndex in 0..<right.width
+                    {
+                        for currentElement in 0..<left.width
+                        {
+                            tempMatrix!.matrixArray[lineIndex][columnIndex] += left.matrixArray[lineIndex][currentElement] * right.matrixArray[currentElement][columnIndex]
+                        }
+                    }
             }
+        } else {
+            tempMatrix = nil
         }
         return tempMatrix
     }
     
     
     static func += (left: Matrix, right: Matrix) {
-        left.eraseMatrix()
-        for lineIndex in 0..<right.height
-        {
-            var tempMatrix: [Int] = []
-            for columnIndex in 0..<right.width
+         if (left.width == right.width && left.height == right.height) {
+            for lineIndex in 0..<left.height
             {
-                tempMatrix.append(right.matrixArray[lineIndex][columnIndex])
+                for columnIndex in 0..<left.width
+                {
+                    left.matrixArray[lineIndex][columnIndex] += right.matrixArray[lineIndex][columnIndex]
+                }
             }
-            left.matrixArray.append(tempMatrix)
         }
     }
 }
@@ -101,30 +136,66 @@ extension Matrix {
 
 print("Сложение матриц:")
 var newMatrix = Matrix()
-newMatrix.matrixFill(width: 5, height: 5)
+newMatrix.matrixFillRandom(width: 5, height: 5)
 print(newMatrix.matrixArray)
 var randomMatrix = Matrix()
-randomMatrix.matrixFill(width: 5, height: 5)
+randomMatrix.matrixFillRandom(width: 5, height: 5)
 print(randomMatrix.matrixArray)
 
 
 var newMatrix2 = newMatrix + randomMatrix
-print("\(newMatrix2.matrixArray)\n")
+if (newMatrix2 == nil) {
+    print("Нельзя провести вычисление!\n")
+} else {
+    print("\(newMatrix2!.matrixArray)\n")
+}
+
+
+print("Умножение матриц:")
+var newMatrixMult = Matrix()
+newMatrixMult.matrixFillRandom(width: 5, height: 5)
+print(newMatrixMult.matrixArray)
+var randomMatrixMult = Matrix()
+randomMatrixMult.matrixFillRandom(width: 5, height: 5)
+print(randomMatrixMult.matrixArray)
+
+
+var newMatrix2Mult = newMatrixMult * randomMatrixMult
+if (newMatrix2Mult == nil) {
+    print("Нельзя провести вычисление!\n")
+} else {
+    print("\(newMatrix2Mult!.matrixArray)\n")
+}
 
 
 print("Транспонирование:")
 var transMatrix = Matrix()
-transMatrix.matrixFill(width: 5, height: 6)
-print(transMatrix.matrixArray)
-print("\(transMatrix.transposed)\n")
+transMatrix.matrixFillRandom(width: 5, height: 6)
+for lineIndex in 0..<transMatrix.height
+{
+    print("\(transMatrix.matrixArray[lineIndex])")
+}
+print()
+for lineIndex in 0..<transMatrix.width
+{
+    print("\(transMatrix.transposed[lineIndex])")
+}
+print()
 
 
 print("Приравнивание:")
 var equalMatrix1 = Matrix()
-equalMatrix1.matrixFill(width: 5, height: 5)
+equalMatrix1.matrixFillRandom(width: 5, height: 5)
 print(equalMatrix1.matrixArray)
 var equalMatrix2 = Matrix()
-equalMatrix2.matrixFill(width: 5, height: 5)
+equalMatrix2.matrixFillRandom(width: 5, height: 5)
 print(equalMatrix2.matrixArray)
 equalMatrix1 += equalMatrix2
 print("\(equalMatrix1.matrixArray)\n")
+
+
+var newRandomItem = Matrix()
+newRandomItem.matrixFillRandom(width: 2, height: 2)
+print(newRandomItem.matrixArray)
+newRandomItem[1, 0] = 2
+print(newRandomItem.matrixArray)
