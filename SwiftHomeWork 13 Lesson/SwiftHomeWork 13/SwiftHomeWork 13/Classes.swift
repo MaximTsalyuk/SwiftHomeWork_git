@@ -82,7 +82,7 @@ class Doctor: PersonProtocol, DoctorProtocol {
     var age: Int
     var specialization: String
     func givePill(patient: PersonProtocol) {
-        print("Give pill!")
+        print("Doctor \(self.name) gives pill to \(patient.name)!")
     }
     
     init(name: String, age: Int, specialization: String) {
@@ -98,7 +98,7 @@ class Driver: PersonProtocol, DriverProtocol {
     var age: Int
     var driveCategory: String
     func drive(from: String, to: String, onCar: CarProtocol) {
-        print("Driving!")
+        print("\(self.name) driving from: \(from) to: \(to)  car:\(onCar)")
     }
     
     init(name: String, age: Int, driveCategory: String) {
@@ -122,7 +122,6 @@ class TaxiOrder: OrderProtocol {
             self.passengers = passengers
             self.tripDescription = "Driving\n" + "From: " + from + " To: " + to + "\nPassengersCount: \(self.passengers.count)\n"
         } else {
-            print("Can't create order!\nPassengersCount is not correct: \(passengers.count) of \(car.maxCountOfPassengers)\n")
             return nil
         }
     }
@@ -146,11 +145,23 @@ class AmbulanceOrder: OrderProtocol {
             self.passengers = passengers
             self.tripDescription = "Ambulance driving\n" + "From: " + from + " To: " + to + "\nPassengersCount: \(self.passengers.count)\nPatientsCount: \(self.patients.count)"
         } else {
-            if (patients.count == 0) {
-                
-            }
-            print("Can't create order!\nPassengersCount is not correct:\nPassengers: \(passengers.count) of \(car.maxCountOfPassengers)\nPatients: \(patients.count) of \(car.maxCountOfPatients)\n")
                 return nil
         }
     }
+}
+
+
+//Functions
+
+func createAmbulanceOrderIfPossible (car: AmbulanceCarProtocol, driver: DriverProtocol, patients: [PersonProtocol], doctor: DoctorProtocol, passengers: [PersonProtocol], from: String, to: String) -> OrderProtocol? {
+    if (patients.count == 0) {
+        return TaxiOrder(car: car, driver: driver, passengers: passengers, from: from, to: to)
+    } else {
+        return AmbulanceOrder(car: car, driver: driver, patients: patients, doctor: doctor, passengers: passengers, from: from, to: to)
+    }
+}
+
+
+func createTaxiOrderIfPossible (car: CarProtocol, driver: DriverProtocol, passengers: [PersonProtocol], from: String, to: String) -> TaxiOrder? {
+    return TaxiOrder(car: car, driver: driver, passengers: passengers, from: from, to: to)
 }

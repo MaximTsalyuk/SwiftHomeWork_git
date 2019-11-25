@@ -85,7 +85,7 @@
 
 import Foundation
 
-var orderList: [OrderProtocol?] = []
+var orderList: [OrderProtocol] = []
 
 var personArray1 = [Person(name: "Smth", age: 20), Person(name: "Smth", age: 12)]
 var personArray2 = [Person(name: "Smth", age: 20), Person(name: "Smth", age: 12), Person(name: "Smth", age: 20), Person(name: "Smth", age: 12)]
@@ -93,21 +93,44 @@ var personArray3 = [Person(name: "Smth", age: 20), Person(name: "Smth", age: 12)
 var taxiDriver = Driver(name: "Josh", age: 20, driveCategory: "B")
 var newTaxiCar = TaxiCar(model: "Chevrolet", maxCountOfPassengers: 5, currentCountOfPassengers: 0)
 
-orderList.append(TaxiOrder(car: newTaxiCar, driver: taxiDriver, passengers: personArray1, from: "London", to: "York"))
-orderList.append(TaxiOrder(car: newTaxiCar, driver: taxiDriver, passengers: personArray2, from: "London", to: "York"))
-orderList.append(TaxiOrder(car: newTaxiCar, driver: taxiDriver, passengers: personArray3, from: "London", to: "York"))
+if let newOrder = createTaxiOrderIfPossible(car: newTaxiCar, driver: taxiDriver, passengers: personArray1, from: "London", to: "York") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
+if let newOrder = createTaxiOrderIfPossible(car: newTaxiCar, driver: taxiDriver, passengers: personArray2, from: "London", to: "York") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
+if let newOrder = createTaxiOrderIfPossible(car: newTaxiCar, driver: taxiDriver, passengers: personArray3, from: "London", to: "York") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
 
 var ambulanceDoctor = Doctor(name: "Pol", age: 30, specialization: "Medic")
 var patienceArray1 = [Person(name: "Smth", age: 20)]
 var ambulanceCarDriver = Driver(name: "Ed", age: 30, driveCategory: "B")
 var ambulanceCar = AmbulanceCar(maxCountOfPatients: 2, model: "Chevrolet", maxCountOfPassengers: 2, currentCountOfPassengers: 0)
-orderList.append(AmbulanceOrder(car: ambulanceCar, driver: ambulanceCarDriver, patients: patienceArray1, doctor: ambulanceDoctor, passengers: personArray3, from: "York", to: "London"))
-orderList.append(AmbulanceOrder(car: ambulanceCar, driver: ambulanceCarDriver, patients: [], doctor: ambulanceDoctor, passengers: personArray2, from: "York", to: "London"))
-orderList.append(AmbulanceOrder(car: ambulanceCar, driver: ambulanceCarDriver, patients: patienceArray1, doctor: ambulanceDoctor, passengers: personArray1, from: "York", to: "London"))
+if let newOrder = createAmbulanceOrderIfPossible(car: ambulanceCar, driver: ambulanceCarDriver, patients: patienceArray1, doctor: ambulanceDoctor, passengers: personArray3, from: "York", to: "London") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
+if let newOrder = createAmbulanceOrderIfPossible(car: ambulanceCar, driver: ambulanceCarDriver, patients: [], doctor: ambulanceDoctor, passengers: personArray2, from: "York", to: "London") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
+if let newOrder = createAmbulanceOrderIfPossible(car: ambulanceCar, driver: ambulanceCarDriver, patients: patienceArray1, doctor: ambulanceDoctor, passengers: personArray1, from: "York", to: "London") {
+    orderList.append(newOrder)
+} else {
+    print("Can't create order!\nPassengersCount is not correct!")
+}
 
+print("\n")
 for item in orderList
 {
-    if (item != nil) {
-        print(item!.tripDescription)
-    }
+    print(item.tripDescription)
 }
