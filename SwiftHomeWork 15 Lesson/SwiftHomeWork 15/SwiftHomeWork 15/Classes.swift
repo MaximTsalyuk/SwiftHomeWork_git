@@ -38,22 +38,23 @@ class Mother {
     }
     
     lazy var childrenGoToSleep: (() -> Void) = { [weak self] in
-        if (self?.family?.children != nil) {
-            print("\(self!.name) \(#function)")
-            for item in (self?.family!.children)!
+        guard let `self` = self else {return}
+            print("\(self.name) \(#function)")
+            for item in (self.family!.children)
             {
                 item.goToSleep()
             }
-        }
     }
     
     lazy var husbandBuyBoots: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
-        self!.family?.father.buyBoots()
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
+        self.family?.father.buyBoots()
     }
     
     lazy var cookMeat: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
         print("Cooking meat!")
     }
 }
@@ -76,23 +77,24 @@ class Father {
     }
     
     lazy var buyBoots: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
         print("Bought boots!")
     }
     
     lazy var childrenGoToSleep: (() -> Void) = { [weak self] in
-        if (self!.family?.children != nil) {
-            print("\(self!.name) \(#function)")
-            for item in self!.family!.children
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
+            for item in self.family!.children
             {
                 item.goToSleep()
             }
-        }
     }
     
     lazy var wifeCookMeat: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
-        self!.family!.mother.cookMeat()
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
+        self.family!.mother.cookMeat()
     }
 }
 
@@ -119,20 +121,23 @@ class Child {
     }
     
     lazy var letsPlayFootbal: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
-        for item in self!.family!.children
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
+        for item in self.family!.children
         {
             item.playFootbal()
         }
     }
     
     lazy var playFootbal: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
         print("Play football!")
     }
     
     lazy var momCookMeat: (() -> Void) = { [weak self] in
-        print("\(self!.name) \(#function)")
-        self!.family?.mother.cookMeat()
+        guard let `self` = self else {return}
+        print("\(self.name) \(#function)")
+        self.family?.mother.cookMeat()
     }
 }
