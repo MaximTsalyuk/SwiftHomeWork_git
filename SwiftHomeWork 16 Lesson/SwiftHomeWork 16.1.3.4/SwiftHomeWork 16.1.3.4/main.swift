@@ -42,29 +42,10 @@ class MyDate {
             throw dateError.incorrectYear
         }
         
-        
-        // Errors handling
-        do {
-            try self.setDate(day: day, month: month, year: year)
-        } catch dateError.incorrectDay {
-            print("Incorrect day!")
-        }
-        catch dateError.incorrectDay {
-            print("Incorrect day!")
-        }
-        catch dateError.incorrectMonth {
-            print("Incorrect month!")
-        } catch dateError.incorrectYear {
-            print("Incorrect year!")
-        }
-        
-        
         self.day = day
         self.month = month
         self.year = year
     }
-    
-    
 }
 
 
@@ -150,18 +131,60 @@ extension MyDate: CustomStringConvertible {
 }
 
 
+func sortGeneric<T>(_ array: inout [T], compareClosure: (T, T) -> Bool) {
+    for index in 0..<array.count
+    {
+        for secondIndex in index..<array.count
+        {
+            if (compareClosure(array[index], array[secondIndex])) {
+                let temp = array[index]
+                array[index] = array[secondIndex]
+                array[secondIndex] = temp
+            }
+        }
+    }
+}
+
+
 var currentDate = MyDate()
 var secondDate = MyDate()
-currentDate.setDate(day: 2, month: 1, year: 2020)
-secondDate.setDate(day: 29, month: 09, year: 2019)
+// Errors handling
+do {
+    try currentDate.setDate(day: 2, month: 1, year: 2020)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+do {
+    try secondDate.setDate(day: 29, month: 09, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
 print(currentDate - secondDate)
 
 
 currentDate += 100
 print(currentDate.description)
 
-
-currentDate.setDate(day: 29, month: 09, year: 2019)
+do {
+    try currentDate.setDate(day: 29, month: 09, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
 if (currentDate == secondDate) {
     print("Same Dates!")
 } else {
@@ -174,8 +197,26 @@ if (currentDate != secondDate) {
     print("Same Dates!")
 }
 
-currentDate.setDate(day: 2, month: 09, year: 2019)
-secondDate.setDate(day: 29, month: 09, year: 2019)
+do {
+    try currentDate.setDate(day: 2, month: 09, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+do {
+    try secondDate.setDate(day: 29, month: 09, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
 
 
 if (currentDate < secondDate) {
@@ -186,8 +227,26 @@ else {
     print(currentDate.description , " >= ", secondDate.description)
 }
 
-currentDate.setDate(day: 2, month: 10, year: 2019)
-secondDate.setDate(day: 29, month: 09, year: 2019)
+do {
+    try currentDate.setDate(day: 2, month: 10, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+do {
+    try secondDate.setDate(day: 29, month: 09, year: 2019)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
 
 if (currentDate > secondDate) {
     print("Current Date Bigger!")
@@ -198,4 +257,81 @@ else {
 }
 
 
-
+var newArray: [MyDate] = []
+let newDate = MyDate()
+do {
+    try newDate.setDate(day: 10, month: 11, year: 1990)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+newArray.append(newDate)
+let newDate1 = MyDate()
+do {
+    try newDate1.setDate(day: 11, month: 11, year: 1990)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+newArray.append(newDate1)
+let newDate2 = MyDate()
+do {
+    try newDate2.setDate(day: 12, month: 11, year: 1990)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+newArray.append(newDate2)
+let newDate3 = MyDate()
+do {
+    try newDate3.setDate(day: 13, month: 11, year: 1990)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+newArray.append(newDate3)
+let newDate4 = MyDate()
+do {
+    try newDate4.setDate(day: 14, month: 11, year: 1990)
+} catch MyDate.dateError.incorrectDay {
+    print("Incorrect day!")
+}
+catch MyDate.dateError.incorrectMonth {
+    print("Incorrect month!")
+} catch MyDate.dateError.incorrectYear {
+    print("Incorrect year!")
+}
+newArray.append(newDate4)
+print("\nNewArray Before:")
+for item in newArray
+{
+    print(item.description)
+}
+sortGeneric(&newArray, compareClosure: { (t1: MyDate, t2: MyDate) -> Bool in
+    var t1isLess = false
+    if (t1 < t2) {
+        t1isLess = true
+    }
+    return t1isLess
+})
+print("\nNewArray After:")
+for item in newArray
+{
+    print(item.description)
+}
