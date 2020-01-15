@@ -182,6 +182,7 @@ for lineIndex in 0..<transMatrix.height
     print("\(transMatrix.matrixArray[lineIndex])")
 }
 print()
+
 for lineIndex in 0..<transMatrix.width
 {
     print("\(transMatrix.transposed[lineIndex])")

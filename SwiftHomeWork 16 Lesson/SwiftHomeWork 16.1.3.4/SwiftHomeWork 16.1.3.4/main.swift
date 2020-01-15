@@ -151,14 +151,21 @@ var secondDate = MyDate()
 // Errors handling
 do {
     try currentDate.setDate(day: 2, month: 1, year: 2020)
-} catch MyDate.dateError.incorrectDay {
+}
+catch MyDate.dateError.incorrectDay {
     print("Incorrect day!")
 }
 catch MyDate.dateError.incorrectMonth {
     print("Incorrect month!")
-} catch MyDate.dateError.incorrectYear {
+}
+catch MyDate.dateError.incorrectYear {
     print("Incorrect year!")
 }
+//catch {
+//    processError(error)
+//}
+
+
 do {
     try secondDate.setDate(day: 29, month: 09, year: 2019)
 } catch MyDate.dateError.incorrectDay {
@@ -221,10 +228,10 @@ catch MyDate.dateError.incorrectMonth {
 
 if (currentDate < secondDate) {
     print("Second Date Bigger!")
-    print(currentDate.description , " < ", secondDate.description)
+    print(currentDate, " < ", secondDate)
 }
 else {
-    print(currentDate.description , " >= ", secondDate.description)
+    print(currentDate, " >= ", secondDate)
 }
 
 do {
