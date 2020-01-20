@@ -119,10 +119,11 @@ class RootViewController: UIViewController, UITextFieldDelegate {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let sliderVC = segue.destination as! SliderViewController
-        sliderVC.redValue = redValue
-        sliderVC.greenValue = greenValue
-        sliderVC.blueValue = blueValue
+        if let sliderVC = segue.destination as? SliderViewController {
+            sliderVC.redValue = redValue
+            sliderVC.greenValue = greenValue
+            sliderVC.blueValue = blueValue
+        }
     }
     
     

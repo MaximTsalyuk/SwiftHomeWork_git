@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhoWantsToBeMillionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdt-Af-luG">
+                                <rect key="frame" x="147" y="170" width="81" height="30"/>
+                                <state key="normal" title="Новая игра"/>
+                                <connections>
+                                    <segue destination="dKT-xH-9oo" kind="show" id="q2o-XK-9zr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkP-8i-6SB">
+                                <rect key="frame" x="103.5" y="350" width="168" height="30"/>
+                                <state key="normal" title="Архив предыдущих игр"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RkP-8i-6SB" secondAttribute="bottom" constant="287" id="2gj-Y0-30f"/>
+                            <constraint firstItem="Bdt-Af-luG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="5uP-Na-w2l"/>
+                            <constraint firstItem="Bdt-Af-luG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h1a-qF-XQt"/>
+                            <constraint firstItem="RkP-8i-6SB" firstAttribute="top" secondItem="Bdt-Af-luG" secondAttribute="bottom" constant="150" id="siR-n3-AaH"/>
+                            <constraint firstItem="RkP-8i-6SB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yo1-NM-TSg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79" y="27"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="z6C-dP-Vod">
+            <objects>
+                <viewController id="dKT-xH-9oo" customClass="QuestionViewController" customModule="WhoWantsToBeMillionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iaH-YL-egh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7s-qE-PVJ">
+                                <rect key="frame" x="155" y="120" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzg-E7-T8g">
+                                <rect key="frame" x="8" y="149" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKF-8N-OzH">
+                                <rect key="frame" x="40" y="319.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUt-0x-wzL">
+                                <rect key="frame" x="40" y="399.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWh-jC-NzA">
+                                <rect key="frame" x="289" y="399.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kq-RY-1yG">
+                                <rect key="frame" x="139.5" y="557" width="96" height="30"/>
+                                <state key="normal" title="Звонок другу"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF8-1z-RRr">
+                                <rect key="frame" x="139.5" y="617" width="96" height="30"/>
+                                <state key="normal" title="Помощь зала"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXa-Oc-kaX">
+                                <rect key="frame" x="289" y="319.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xzg-E7-T8g" firstAttribute="leading" secondItem="z15-Au-p4j" secondAttribute="leading" constant="8" id="7DP-sU-TGs"/>
+                            <constraint firstItem="fWh-jC-NzA" firstAttribute="bottom" secondItem="XUt-0x-wzL" secondAttribute="bottom" id="7pa-B2-CfV"/>
+                            <constraint firstItem="L7s-qE-PVJ" firstAttribute="centerX" secondItem="iaH-YL-egh" secondAttribute="centerX" id="8be-hW-xgr"/>
+                            <constraint firstItem="uXa-Oc-kaX" firstAttribute="top" secondItem="PKF-8N-OzH" secondAttribute="top" id="CBz-KX-hdp"/>
+                            <constraint firstItem="Xzg-E7-T8g" firstAttribute="top" secondItem="L7s-qE-PVJ" secondAttribute="bottom" constant="8" id="DN1-U7-2dN"/>
+                            <constraint firstItem="fWh-jC-NzA" firstAttribute="top" secondItem="XUt-0x-wzL" secondAttribute="top" id="GbY-p3-lav"/>
+                            <constraint firstItem="fWh-jC-NzA" firstAttribute="trailing" secondItem="uXa-Oc-kaX" secondAttribute="trailing" id="H2G-7X-omb"/>
+                            <constraint firstItem="z15-Au-p4j" firstAttribute="bottom" secondItem="aF8-1z-RRr" secondAttribute="bottom" constant="20" id="N8s-Cn-XHG"/>
+                            <constraint firstItem="aF8-1z-RRr" firstAttribute="top" secondItem="3Kq-RY-1yG" secondAttribute="bottom" constant="30" id="PkT-hT-TOF"/>
+                            <constraint firstItem="PKF-8N-OzH" firstAttribute="top" secondItem="Xzg-E7-T8g" secondAttribute="bottom" constant="150" id="Qco-zr-3oq"/>
+                            <constraint firstItem="uXa-Oc-kaX" firstAttribute="bottom" secondItem="PKF-8N-OzH" secondAttribute="bottom" id="UAv-4e-BOL"/>
+                            <constraint firstItem="aF8-1z-RRr" firstAttribute="trailing" secondItem="3Kq-RY-1yG" secondAttribute="trailing" id="VBJ-lo-IFJ"/>
+                            <constraint firstItem="XUt-0x-wzL" firstAttribute="leading" secondItem="PKF-8N-OzH" secondAttribute="leading" id="Xxj-7t-drB"/>
+                            <constraint firstItem="fWh-jC-NzA" firstAttribute="leading" secondItem="uXa-Oc-kaX" secondAttribute="leading" id="Yre-e2-bUg"/>
+                            <constraint firstItem="XUt-0x-wzL" firstAttribute="trailing" secondItem="PKF-8N-OzH" secondAttribute="trailing" id="b3X-bG-bGB"/>
+                            <constraint firstItem="z15-Au-p4j" firstAttribute="trailing" secondItem="uXa-Oc-kaX" secondAttribute="trailing" constant="40" id="eHC-1o-Iu4"/>
+                            <constraint firstItem="XUt-0x-wzL" firstAttribute="top" secondItem="PKF-8N-OzH" secondAttribute="bottom" constant="50" id="mma-uz-Iye"/>
+                            <constraint firstItem="aF8-1z-RRr" firstAttribute="leading" secondItem="3Kq-RY-1yG" secondAttribute="leading" id="tp2-Q3-kDL"/>
+                            <constraint firstItem="aF8-1z-RRr" firstAttribute="centerX" secondItem="iaH-YL-egh" secondAttribute="centerX" id="uC8-Ds-8Tj"/>
+                            <constraint firstItem="3Kq-RY-1yG" firstAttribute="centerX" secondItem="iaH-YL-egh" secondAttribute="centerX" id="uFh-6Y-cb7"/>
+                            <constraint firstItem="L7s-qE-PVJ" firstAttribute="top" secondItem="z15-Au-p4j" secondAttribute="top" constant="100" id="v1T-Ex-6LW"/>
+                            <constraint firstItem="z15-Au-p4j" firstAttribute="trailing" secondItem="Xzg-E7-T8g" secondAttribute="trailing" constant="8" id="v1d-er-u8z"/>
+                            <constraint firstItem="PKF-8N-OzH" firstAttribute="leading" secondItem="z15-Au-p4j" secondAttribute="leading" constant="40" id="wFS-vX-O1d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z15-Au-p4j"/>
+                    </view>
+                    <connections>
+                        <outlet property="leftBotButton" destination="XUt-0x-wzL" id="cou-Zm-d8Y"/>
+                        <outlet property="leftTopButton" destination="PKF-8N-OzH" id="noq-8G-2Zj"/>
+                        <outlet property="mainQuestionLabel" destination="Xzg-E7-T8g" id="LsI-Tu-bDO"/>
+                        <outlet property="rightBotButton" destination="fWh-jC-NzA" id="j8z-gG-rsb"/>
+                        <outlet property="rightTopButton" destination="uXa-Oc-kaX" id="FLE-ug-HVf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbN-8q-hcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994" y="27"/>
+        </scene>
+    </scenes>
+</document>

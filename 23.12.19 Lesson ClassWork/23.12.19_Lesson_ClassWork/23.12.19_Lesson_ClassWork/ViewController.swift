@@ -58,6 +58,7 @@ class Emoji {
 
 
 class ViewController: UIViewController {
+    var currentIndexPath = 0
     var emojis: [Emoji] = [
         Emoji(symbol: "😀", name: "Grinning Face",
               description: "A typical smiley face.", usage: "happiness"),
@@ -87,9 +88,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
 }
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,7 +104,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "secondViewControllerSegue" {
+            let secondViewController = segue.destination as? SecondViewController
+            secondViewController?.transferMainLabelData = emojis[currentIndexPath].symbol
+            secondViewController?.transferDescriptionLabelData = emojis[currentIndexPath].description
+            secondViewController?.transferTitleLabelData = emojis[currentIndexPath].name
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(emojis[indexPath.row].description)")
+        currentIndexPath = indexPath.row
+        performSegue(withIdentifier: "secondViewControllerSegue", sender: self)
     }
 }
