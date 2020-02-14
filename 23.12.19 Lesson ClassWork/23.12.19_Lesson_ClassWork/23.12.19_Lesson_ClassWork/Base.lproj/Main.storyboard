@@ -113,22 +113,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-2A-sRj">
+                                <rect key="frame" x="10" y="360" width="355" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gsg-24-tKF" firstAttribute="centerY" secondItem="CB6-Wc-PKz" secondAttribute="centerY" id="Aby-Mq-9lA"/>
                             <constraint firstItem="8nQ-TC-0FH" firstAttribute="top" secondItem="PU2-li-Xbx" secondAttribute="top" constant="100" id="Ruk-ks-q60"/>
                             <constraint firstItem="3n6-0C-ZAc" firstAttribute="centerX" secondItem="CB6-Wc-PKz" secondAttribute="centerX" id="dRe-tb-yPD"/>
+                            <constraint firstItem="PU2-li-Xbx" firstAttribute="trailing" secondItem="9mA-2A-sRj" secondAttribute="trailing" constant="10" id="ega-Ns-hlt"/>
+                            <constraint firstItem="9mA-2A-sRj" firstAttribute="top" secondItem="Gsg-24-tKF" secondAttribute="bottom" constant="16" id="fP1-sB-gyc"/>
                             <constraint firstItem="PU2-li-Xbx" firstAttribute="trailing" secondItem="Gsg-24-tKF" secondAttribute="trailing" constant="10" id="hCs-kt-t4V"/>
                             <constraint firstItem="3n6-0C-ZAc" firstAttribute="top" secondItem="8nQ-TC-0FH" secondAttribute="bottom" constant="10" id="jDQ-Wf-E7d"/>
                             <constraint firstItem="Gsg-24-tKF" firstAttribute="centerX" secondItem="CB6-Wc-PKz" secondAttribute="centerX" id="nTg-wc-hZN"/>
                             <constraint firstItem="8nQ-TC-0FH" firstAttribute="centerX" secondItem="CB6-Wc-PKz" secondAttribute="centerX" id="pUJ-qQ-E4E"/>
                             <constraint firstItem="Gsg-24-tKF" firstAttribute="leading" secondItem="PU2-li-Xbx" secondAttribute="leading" constant="10" id="phe-Tk-T52"/>
+                            <constraint firstItem="9mA-2A-sRj" firstAttribute="leading" secondItem="PU2-li-Xbx" secondAttribute="leading" constant="10" id="tMz-HM-IQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PU2-li-Xbx"/>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="Gsg-24-tKF" id="ohC-uN-Eas"/>
+                        <outlet property="detailsLabel" destination="9mA-2A-sRj" id="EaJ-jX-xLK"/>
                         <outlet property="mainLabel" destination="8nQ-TC-0FH" id="5xM-J4-T1y"/>
                         <outlet property="titleLabel" destination="3n6-0C-ZAc" id="Alh-ea-H8W"/>
                     </connections>

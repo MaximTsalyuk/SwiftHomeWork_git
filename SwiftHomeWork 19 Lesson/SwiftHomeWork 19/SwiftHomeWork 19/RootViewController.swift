@@ -38,6 +38,8 @@ class RootViewController: UIViewController, UITextFieldDelegate {
             blueValue = "0.5"
         }
 
+        navigationItem.title = "Корневой"
+
         redTextField.delegate = self
         greenTextField.delegate = self
         blueTextField.delegate = self

@@ -98,13 +98,14 @@ class ViewController: UIViewController {
 
     
     func updateUI (arrayOfJsonObjects: [AnyObject]) {
-        var objectsTurnedToString = ""
-        for index in 0..<arrayOfJsonObjects.count {
-            print(arrayOfJsonObjects[index])
-            //objectsTurnedToString += "\n"
-        }
-        //moneyApiMainTextView.text = objectsTurnedToString
+        var stringOfCombinedObjects = ""
+        for jsonObject in arrayOfJsonObjects {
+            if let dict = jsonObject as? [String: Any] {
+                stringOfCombinedObjects += "Base currency: \(String(describing: dict["base_ccy"]!))\nExchange currency: \(String(describing: dict["ccy"]!))\nSale: \(String(describing: dict["sale"]!))\nBuy: \(String(describing: dict["buy"]!))"
+            }
+            stringOfCombinedObjects += "\n\n"
     }
-    
+    moneyApiMainTextView.text = stringOfCombinedObjects
 }
 
+}

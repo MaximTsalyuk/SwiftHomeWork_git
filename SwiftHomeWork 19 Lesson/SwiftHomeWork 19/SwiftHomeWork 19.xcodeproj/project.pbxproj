@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		947026AB23D62C3400BBDA2B /* LastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947026AA23D62C3400BBDA2B /* LastViewController.swift */; };
 		9475F41523C641B20094B840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9475F41423C641B20094B840 /* AppDelegate.swift */; };
 		9475F41723C641B20094B840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9475F41623C641B20094B840 /* ViewController.swift */; };
 		9475F41A23C641B20094B840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9475F41823C641B20094B840 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		947026AA23D62C3400BBDA2B /* LastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
 		9475F41123C641B20094B840 /* SwiftHomeWork 19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftHomeWork 19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9475F41423C641B20094B840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9475F41623C641B20094B840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9475F41623C641B20094B840 /* ViewController.swift */,
 				9475F42623C662460094B840 /* SliderViewController.swift */,
 				9475F42823C665530094B840 /* RootViewController.swift */,
+				947026AA23D62C3400BBDA2B /* LastViewController.swift */,
 			);
 			path = "SwiftHomeWork 19";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9475F42723C662460094B840 /* SliderViewController.swift in Sources */,
+				947026AB23D62C3400BBDA2B /* LastViewController.swift in Sources */,
 				9475F41723C641B20094B840 /* ViewController.swift in Sources */,
 				9475F42923C665530094B840 /* RootViewController.swift in Sources */,
 				9475F41523C641B20094B840 /* AppDelegate.swift in Sources */,

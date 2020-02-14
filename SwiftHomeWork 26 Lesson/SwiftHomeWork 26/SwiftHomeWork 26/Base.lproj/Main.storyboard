@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z3q-6h-pGm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,128 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--To Date Currency Exchange-->
+        <scene sceneID="FXJ-fP-PUa">
+            <objects>
+                <viewController id="18f-zD-WTI" customClass="DatePickerViewController" customModule="SwiftHomeWork_26" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N1K-ho-Efr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xSf-ff-hQt">
+                                <rect key="frame" x="0.0" y="342" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="601576598.75930905">
+                                    <!--2020-01-24 16:36:38 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="475243200">
+                                    <!--2016-01-23 12:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="601470000">
+                                    <!--2020-01-23 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="18f-zD-WTI" eventType="valueChanged" id="fo0-h5-aNS"/>
+                                </connections>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clj-mU-LPk">
+                                <rect key="frame" x="16" y="20" width="343" height="314"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xSf-ff-hQt" firstAttribute="leading" secondItem="QyM-75-TFd" secondAttribute="leading" id="C4R-cU-Y2F"/>
+                            <constraint firstItem="xSf-ff-hQt" firstAttribute="trailing" secondItem="QyM-75-TFd" secondAttribute="trailing" id="J8f-kn-2xE"/>
+                            <constraint firstItem="QyM-75-TFd" firstAttribute="bottom" secondItem="xSf-ff-hQt" secondAttribute="bottom" constant="60" id="PVK-63-ptO"/>
+                            <constraint firstItem="Clj-mU-LPk" firstAttribute="leading" secondItem="QyM-75-TFd" secondAttribute="leading" constant="16" id="Z31-XC-EBa"/>
+                            <constraint firstItem="xSf-ff-hQt" firstAttribute="top" secondItem="Clj-mU-LPk" secondAttribute="bottom" constant="8" id="ab2-FA-nXg"/>
+                            <constraint firstItem="QyM-75-TFd" firstAttribute="trailing" secondItem="Clj-mU-LPk" secondAttribute="trailing" constant="16" id="rf5-3m-3aO"/>
+                            <constraint firstItem="Clj-mU-LPk" firstAttribute="top" secondItem="QyM-75-TFd" secondAttribute="top" id="zMd-Ia-bbE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QyM-75-TFd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="To Date Currency Exchange" id="89v-2f-H7E"/>
+                    <connections>
+                        <outlet property="datePicker" destination="xSf-ff-hQt" id="O4H-Fy-f9c"/>
+                        <outlet property="mainTextView" destination="Clj-mU-LPk" id="1ej-pj-dYK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KD9-Sn-q7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-751.20000000000005" y="242.42878560719643"/>
+        </scene>
+        <!--WeatherAPI-->
+        <scene sceneID="DbR-bn-dhx">
+            <objects>
+                <viewController id="mji-5l-Lzd" customClass="WeatherViewController" customModule="SwiftHomeWork_26" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tmh-7S-Sgl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIb-ga-mOo">
+                                <rect key="frame" x="172.5" y="374" width="30" height="30"/>
+                                <state key="normal" title="Kyiv"/>
+                                <connections>
+                                    <action selector="currentWeatherKievButtonAction:" destination="mji-5l-Lzd" eventType="touchUpInside" id="nJJ-Rj-WX7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMf-ep-RvX">
+                                <rect key="frame" x="125" y="323" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83b-jh-PGS">
+                                <rect key="frame" x="16" y="20" width="343" height="295"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DMf-ep-RvX" firstAttribute="top" secondItem="83b-jh-PGS" secondAttribute="bottom" constant="8" id="0iU-gn-Dua"/>
+                            <constraint firstItem="DMf-ep-RvX" firstAttribute="centerX" secondItem="Tmh-7S-Sgl" secondAttribute="centerX" id="CCL-87-thA"/>
+                            <constraint firstItem="83b-jh-PGS" firstAttribute="leading" secondItem="VGC-DS-HJt" secondAttribute="leading" constant="16" id="EN0-G9-lkc"/>
+                            <constraint firstItem="VGC-DS-HJt" firstAttribute="trailing" secondItem="83b-jh-PGS" secondAttribute="trailing" constant="16" id="S6G-K1-HOa"/>
+                            <constraint firstItem="SIb-ga-mOo" firstAttribute="top" secondItem="DMf-ep-RvX" secondAttribute="bottom" constant="30" id="Wse-lX-3iR"/>
+                            <constraint firstItem="DMf-ep-RvX" firstAttribute="centerY" secondItem="Tmh-7S-Sgl" secondAttribute="centerY" id="hsI-lm-ild"/>
+                            <constraint firstItem="83b-jh-PGS" firstAttribute="top" secondItem="VGC-DS-HJt" secondAttribute="top" id="kT1-pG-eNW"/>
+                            <constraint firstItem="SIb-ga-mOo" firstAttribute="centerX" secondItem="Tmh-7S-Sgl" secondAttribute="centerX" id="wkG-x8-dWZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VGC-DS-HJt"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="WeatherAPI" id="0PR-XU-D6v"/>
+                    <connections>
+                        <outlet property="mainTextView" destination="83b-jh-PGS" id="4fP-Ay-7Lj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NtG-Th-Py5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="-502.39880059970017"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oHG-Xd-Dc5">
+            <objects>
+                <tabBarController id="Z3q-6h-pGm" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H4u-fn-kXM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="18f-zD-WTI" kind="relationship" relationship="viewControllers" id="5rZ-LP-jC9"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CgO-eW-Uv1"/>
+                        <segue destination="mji-5l-Lzd" kind="relationship" relationship="viewControllers" id="i18-E0-ywP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8F6-bK-Oid" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1703" y="-89"/>
+        </scene>
+        <!--Current Currency Exchnge-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftHomeWork_26" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,14 +140,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-Lm-gKZ">
-                                <rect key="frame" x="88" y="537" width="199" height="30"/>
+                                <rect key="frame" x="88" y="488" width="199" height="30"/>
                                 <state key="normal" title="Текущая дата и  курс валют"/>
                                 <connections>
                                     <action selector="moneyApiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XF6-JE-Z1h"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Нажмите на кнопку." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87Q-iw-btH">
-                                <rect key="frame" x="16" y="20" width="343" height="467"/>
+                                <rect key="frame" x="16" y="20" width="343" height="418"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -43,13 +164,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Current Currency Exchnge" id="3FB-Cb-lVT"/>
                     <connections>
                         <outlet property="moneyApiMainTextView" destination="87Q-iw-btH" id="ITP-bl-sKw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-751" y="-502"/>
         </scene>
     </scenes>
 </document>

@@ -111,6 +111,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             secondViewController?.transferMainLabelData = emojis[currentIndexPath].symbol
             secondViewController?.transferDescriptionLabelData = emojis[currentIndexPath].description
             secondViewController?.transferTitleLabelData = emojis[currentIndexPath].name
+            secondViewController?.transferDetailLabelData = emojis[currentIndexPath].usage
         }
     }
     

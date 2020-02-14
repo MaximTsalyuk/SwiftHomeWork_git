@@ -12,9 +12,11 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     var transferMainLabelData: String = ""
     var transferTitleLabelData: String = ""
     var transferDescriptionLabelData: String = ""
+    var transferDetailLabelData: String = ""
     
     
     override func viewDidLoad() {
@@ -22,5 +24,6 @@ class SecondViewController: UIViewController {
         mainLabel.text = transferMainLabelData
         titleLabel.text = transferTitleLabelData
         descriptionLabel.text = transferDescriptionLabelData
+        detailsLabel.text = transferDetailLabelData
     }
 }
