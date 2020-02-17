@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Question</key>
+		<string>Сколько раз в сутки подзаводят куранты Спасской башни Кремля?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Два</key>
+			<true/>
+			<key>Один</key>
+			<false/>
+			<key>Три</key>
+			<false/>
+			<key>Четыре</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Кто 1-м получил Нобелевскую премию по литературе?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Романист</key>
+			<false/>
+			<key>Драматург</key>
+			<false/>
+			<key>Поэт</key>
+			<true/>
+			<key>Эссеист</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>С какой буквы начинаются слова, опубликованные в 16-м томе последнего издания Большой советской энциклопедии?</string>
+		<key>Answers</key>
+		<dict>
+			<key>М</key>
+			<true/>
+			<key>Н</key>
+			<false/>
+			<key>О</key>
+			<false/>
+			<key>П</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Кто из перечисленных был пажом во времена Екатерины II?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Д.И. Фонвизин</key>
+			<false/>
+			<key>Г.Р. Державин</key>
+			<false/>
+			<key>А.Н. Радищев</key>
+			<true/>
+			<key>Н.М. Карамзин</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Какой химический элемент назван в честь злого подземного гнома?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Гафний</key>
+			<false/>
+			<key>Кобальт</key>
+			<true/>
+			<key>Бериллий</key>
+			<false/>
+			<key>Теллур</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>В какой из этих столиц бывших союзных республик раньше появилось метро?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Тбилиси</key>
+			<true/>
+			<key>Ереван</key>
+			<false/>
+			<key>Баку</key>
+			<false/>
+			<key>Минск</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Сколько морей омывают Балканский полуостров?</string>
+		<key>Answers</key>
+		<dict>
+			<key>3</key>
+			<false/>
+			<key>4</key>
+			<false/>
+			<key>5</key>
+			<false/>
+			<key>6</key>
+			<true/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Реки с каким названием нет на территории России?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Шея</key>
+			<false/>
+			<key>Уста</key>
+			<false/>
+			<key>Спина</key>
+			<true/>
+			<key>Палец</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Что такое лобогрейка?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Жнейка</key>
+			<true/>
+			<key>Шапка</key>
+			<false/>
+			<key>Болезнь</key>
+			<false/>
+			<key>Печка</key>
+			<false/>
+		</dict>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>Какой вид кавалерии предназначался для боевых действий как в конном, так и в пешем строю?</string>
+		<key>Answers</key>
+		<dict>
+			<key>Кирасиры</key>
+			<false/>
+			<key>Уланы</key>
+			<false/>
+			<key>Драгуны</key>
+			<true/>
+			<key>Гусары</key>
+			<false/>
+		</dict>
+	</dict>
+</array>
+</plist>

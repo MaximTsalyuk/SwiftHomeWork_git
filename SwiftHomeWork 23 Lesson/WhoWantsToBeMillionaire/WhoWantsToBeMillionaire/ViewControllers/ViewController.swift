@@ -19,8 +19,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let questionsVC = segue.destination as? QuestionViewController {
             let getQuestionsAndAnswers = GetQuestionsAndAnswers()
-            questionsVC.questions = getQuestionsAndAnswers.getPlist(withName: "Questions") as! [String]
-            questionsVC.answers = getQuestionsAndAnswers.getPlist(withName: "Answers") as! [Dictionary<String, Bool>]
+            questionsVC.QnAList = getQuestionsAndAnswers.getPlist(withName: "StandartQnA") as! [Dictionary<String, AnyObject>]
+            //questionsVC.questions = getQuestionsAndAnswers.getPlist(withName: "Questions") as! [String]
+            //questionsVC.answers = getQuestionsAndAnswers.getPlist(withName: "Answers") as! [Dictionary<String, Bool>]
         }
     }
 }

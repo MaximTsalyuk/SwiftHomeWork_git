@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941F5ABB23FAC07100CEEF63 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F5ABA23FAC07100CEEF63 /* GameController.swift */; };
+		941F5ABD23FAC37C00CEEF63 /* StandartQnA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 941F5ABC23FAC37C00CEEF63 /* StandartQnA.plist */; };
+		941F5AC123FACE5E00CEEF63 /* CurrentQnA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F5AC023FACE5E00CEEF63 /* CurrentQnA.swift */; };
+		942DD76C23F7350D006070ED /* WriteToPlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942DD76B23F7350D006070ED /* WriteToPlistController.swift */; };
 		942EB8F523F1DC0A005CB15D /* GetQuestionsAndAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EB8F423F1DC0A005CB15D /* GetQuestionsAndAnswers.swift */; };
 		946E4D9323E489050088C905 /* CorrectQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E4D9223E489050088C905 /* CorrectQuestionViewController.swift */; };
 		946E4D9523E489120088C905 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E4D9423E489120088C905 /* EndGameViewController.swift */; };
 		946F2D7A23EDBC7100D384F4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946F2D7923EDBC7100D384F4 /* CustomTableViewCell.swift */; };
 		946F2D7C23EDBE9700D384F4 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946F2D7B23EDBE9700D384F4 /* ArchiveViewController.swift */; };
 		946F2D7E23EDD32B00D384F4 /* ArchiveDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946F2D7D23EDD32B00D384F4 /* ArchiveDetailedViewController.swift */; };
+		9479C18723F7F2FF00670E1F /* CurrentGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9479C18623F7F2FF00670E1F /* CurrentGame.swift */; };
 		9490A19B23D5D67200DD152D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490A19A23D5D67200DD152D /* AppDelegate.swift */; };
 		9490A19D23D5D67200DD152D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9490A19C23D5D67200DD152D /* ViewController.swift */; };
 		9490A1A023D5D67200DD152D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9490A19E23D5D67200DD152D /* Main.storyboard */; };
@@ -24,12 +29,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		941F5ABA23FAC07100CEEF63 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		941F5ABC23FAC37C00CEEF63 /* StandartQnA.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = StandartQnA.plist; sourceTree = "<group>"; };
+		941F5AC023FACE5E00CEEF63 /* CurrentQnA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentQnA.swift; sourceTree = "<group>"; };
+		942DD76B23F7350D006070ED /* WriteToPlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteToPlistController.swift; sourceTree = "<group>"; };
 		942EB8F423F1DC0A005CB15D /* GetQuestionsAndAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionsAndAnswers.swift; sourceTree = "<group>"; };
 		946E4D9223E489050088C905 /* CorrectQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectQuestionViewController.swift; sourceTree = "<group>"; };
 		946E4D9423E489120088C905 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		946F2D7923EDBC7100D384F4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		946F2D7B23EDBE9700D384F4 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		946F2D7D23EDD32B00D384F4 /* ArchiveDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailedViewController.swift; sourceTree = "<group>"; };
+		9479C18623F7F2FF00670E1F /* CurrentGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGame.swift; sourceTree = "<group>"; };
 		9490A19723D5D67200DD152D /* WhoWantsToBeMillionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWantsToBeMillionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9490A19A23D5D67200DD152D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9490A19C23D5D67200DD152D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,9 +63,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		941F5AB923FABC7500CEEF63 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9490A19C23D5D67200DD152D /* ViewController.swift */,
+				9490A1B023D5E19700DD152D /* QuestionViewController.swift */,
+				946E4D9423E489120088C905 /* EndGameViewController.swift */,
+				946E4D9223E489050088C905 /* CorrectQuestionViewController.swift */,
+				946F2D7B23EDBE9700D384F4 /* ArchiveViewController.swift */,
+				946F2D7D23EDD32B00D384F4 /* ArchiveDetailedViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		942EB8F023F1DADD005CB15D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9479C18623F7F2FF00670E1F /* CurrentGame.swift */,
+				941F5AC023FACE5E00CEEF63 /* CurrentQnA.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -63,13 +88,7 @@
 		942EB8F223F1DAFB005CB15D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9490A19C23D5D67200DD152D /* ViewController.swift */,
-				9490A1B023D5E19700DD152D /* QuestionViewController.swift */,
-				946E4D9423E489120088C905 /* EndGameViewController.swift */,
-				946E4D9223E489050088C905 /* CorrectQuestionViewController.swift */,
 				946F2D7923EDBC7100D384F4 /* CustomTableViewCell.swift */,
-				946F2D7B23EDBE9700D384F4 /* ArchiveViewController.swift */,
-				946F2D7D23EDD32B00D384F4 /* ArchiveDetailedViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -78,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				942EB8F423F1DC0A005CB15D /* GetQuestionsAndAnswers.swift */,
+				942DD76B23F7350D006070ED /* WriteToPlistController.swift */,
+				941F5ABA23FAC07100CEEF63 /* GameController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -101,6 +122,7 @@
 		9490A19923D5D67200DD152D /* WhoWantsToBeMillionaire */ = {
 			isa = PBXGroup;
 			children = (
+				941F5AB923FABC7500CEEF63 /* ViewControllers */,
 				942EB8F323F1DB01005CB15D /* Controller */,
 				942EB8F223F1DAFB005CB15D /* View */,
 				942EB8F023F1DADD005CB15D /* Model */,
@@ -111,6 +133,7 @@
 				9490A1A623D5D67300DD152D /* Info.plist */,
 				9490A1AC23D5D90300DD152D /* Questions.plist */,
 				9490A1AE23D5DAD300DD152D /* Answers.plist */,
+				941F5ABC23FAC37C00CEEF63 /* StandartQnA.plist */,
 			);
 			path = WhoWantsToBeMillionaire;
 			sourceTree = "<group>";
@@ -177,6 +200,7 @@
 				9490A1A523D5D67300DD152D /* LaunchScreen.storyboard in Resources */,
 				9490A1A223D5D67300DD152D /* Assets.xcassets in Resources */,
 				9490A1AF23D5DAD300DD152D /* Answers.plist in Resources */,
+				941F5ABD23FAC37C00CEEF63 /* StandartQnA.plist in Resources */,
 				9490A1A023D5D67200DD152D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,10 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9490A19D23D5D67200DD152D /* ViewController.swift in Sources */,
+				941F5ABB23FAC07100CEEF63 /* GameController.swift in Sources */,
+				942DD76C23F7350D006070ED /* WriteToPlistController.swift in Sources */,
 				9490A19B23D5D67200DD152D /* AppDelegate.swift in Sources */,
 				946E4D9523E489120088C905 /* EndGameViewController.swift in Sources */,
 				946F2D7E23EDD32B00D384F4 /* ArchiveDetailedViewController.swift in Sources */,
+				9479C18723F7F2FF00670E1F /* CurrentGame.swift in Sources */,
 				942EB8F523F1DC0A005CB15D /* GetQuestionsAndAnswers.swift in Sources */,
+				941F5AC123FACE5E00CEEF63 /* CurrentQnA.swift in Sources */,
 				946F2D7A23EDBC7100D384F4 /* CustomTableViewCell.swift in Sources */,
 				9490A1B123D5E19700DD152D /* QuestionViewController.swift in Sources */,
 				946E4D9323E489050088C905 /* CorrectQuestionViewController.swift in Sources */,

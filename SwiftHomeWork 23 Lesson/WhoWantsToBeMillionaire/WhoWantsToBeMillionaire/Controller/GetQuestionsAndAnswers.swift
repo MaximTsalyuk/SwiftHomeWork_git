@@ -17,6 +17,8 @@ class GetQuestionsAndAnswers {
         {
             if (name == "Questions") {
                 return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String]
+            }else if (name == "StandartQnA") {
+                return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [Dictionary<String, AnyObject>]
             } else {
                 return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [Dictionary<String, Bool>]
             }

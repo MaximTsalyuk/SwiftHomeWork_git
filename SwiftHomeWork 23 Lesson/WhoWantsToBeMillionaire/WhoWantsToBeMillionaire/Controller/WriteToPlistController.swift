@@ -1,32 +1,16 @@
 //
-//  EndGameViewController.swift
+//  WriteToPlistController.swift
 //  WhoWantsToBeMillionaire
 //
-//  Created by Максим on 1/31/20.
+//  Created by Максим on 2/14/20.
 //  Copyright © 2020 Максим. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class EndGameViewController: UIViewController {
-    @IBOutlet weak var mainLabel: UILabel!
-    var mainLabelText: String = ""
-    var currentGame: [String: String] = [:]
-    var currentGameQuestions: [String] = []
-    var currentGameAnswers: [String] = []
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        print(currentGame)
-        mainLabel.text = mainLabelText
-    }
-    
-    
-    @IBAction func okButtonAction(_ sender: Any) {
-        let gameDict = ["mainGameInfo": currentGame, "gameQuestionsArray": currentGameQuestions, "gameAnswersArray": currentGameAnswers] as [String : Any]
-        print(Array(gameDict))
+
+class WriteToPlistController {
+    func writeToFile(gameDict: [String : Any]) {
         //получение папки Documents
         let docsBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         //получение полного пути файла
@@ -35,8 +19,8 @@ class EndGameViewController: UIViewController {
         var historyArray = NSMutableArray(contentsOf: customPlistURL)
         print("cd before:\(String(describing: historyArray))")
         if (historyArray == nil) {
-            historyArray = []
-            //historyArray?.add(Array(gameDict))
+        historyArray = []
+        //historyArray?.add(Array(gameDict))
         }
         historyArray?.add(gameDict)
         
@@ -51,8 +35,5 @@ class EndGameViewController: UIViewController {
         
         print("cd after: ")
         print(Array(customDict))
-        
-        
-        self.navigationController!.popToRootViewController(animated: true)
     }
 }
