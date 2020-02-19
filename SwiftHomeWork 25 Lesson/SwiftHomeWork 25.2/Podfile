@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+
+use_frameworks!
+
+target 'SwiftHomeWork 25.2' do
+    pod 'SwiftyJSON', '~> 4.0'
+	pod 'Alamofire', '~> 5.0'
+end
