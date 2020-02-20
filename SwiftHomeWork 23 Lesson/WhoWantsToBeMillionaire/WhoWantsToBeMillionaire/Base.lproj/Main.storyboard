@@ -58,13 +58,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7s-qE-PVJ">
-                                <rect key="frame" x="159" y="124" width="65" height="21"/>
+                                <rect key="frame" x="155" y="124" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzg-E7-T8g">
-                                <rect key="frame" x="8" y="155" width="367" height="20.5"/>
+                                <rect key="frame" x="8" y="155" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWh-jC-NzA">
-                                <rect key="frame" x="200" y="399.5" width="167" height="40"/>
+                                <rect key="frame" x="200" y="399.5" width="159" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="WJ5-JF-lCN"/>
                                     <constraint firstAttribute="height" constant="40" id="flG-N6-Scx"/>
@@ -92,21 +92,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kq-RY-1yG">
-                                <rect key="frame" x="143.5" y="557" width="96" height="30"/>
+                                <rect key="frame" x="139.5" y="557" width="96" height="30"/>
                                 <state key="normal" title="Звонок другу"/>
                                 <connections>
                                     <action selector="callButtonAction:" destination="dKT-xH-9oo" eventType="touchUpInside" id="6cT-QU-OQ0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aF8-1z-RRr">
-                                <rect key="frame" x="143.5" y="617" width="96" height="30"/>
+                                <rect key="frame" x="139.5" y="617" width="96" height="30"/>
                                 <state key="normal" title="Помощь зала"/>
                                 <connections>
                                     <action selector="helpButtonAction:" destination="dKT-xH-9oo" eventType="touchUpInside" id="Bz8-h9-LaB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXa-Oc-kaX">
-                                <rect key="frame" x="200" y="319.5" width="167" height="40"/>
+                                <rect key="frame" x="200" y="319.5" width="159" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TUL-P9-1pP"/>
                                     <constraint firstAttribute="width" constant="167" id="q0U-EU-e03"/>
@@ -322,6 +322,7 @@
                     </view>
                     <connections>
                         <outlet property="mainLabel" destination="PuQ-DS-1EC" id="Ezt-Kg-TUd"/>
+                        <outlet property="nextQuestionButton" destination="yhf-PS-5hP" id="hbU-y5-Trx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzX-19-srY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,6 +388,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4HE-dQ-Yvo"/>
+        <segue reference="sYf-e8-Fs6"/>
     </inferredMetricsTieBreakers>
 </document>

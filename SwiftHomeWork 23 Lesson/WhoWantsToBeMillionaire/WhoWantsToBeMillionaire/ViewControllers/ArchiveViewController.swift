@@ -21,7 +21,7 @@ class ArchiveViewController: UIViewController {
         let docsBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         //получение полного пути файла
         let customPlistURL = docsBaseURL.appendingPathComponent("PreviousGames.plist")
-        customArray = NSMutableArray(contentsOf: customPlistURL)!
+        customArray = NSMutableArray(contentsOf: customPlistURL) ?? []
         print(customArray)
         
         let clearArchiveButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(tapClearArchiveButton))

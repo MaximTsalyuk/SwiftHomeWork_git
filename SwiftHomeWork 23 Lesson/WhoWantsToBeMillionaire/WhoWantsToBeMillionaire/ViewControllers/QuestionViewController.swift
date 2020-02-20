@@ -95,12 +95,15 @@ class QuestionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let correctQuestionVC = segue.destination as? CorrectQuestionViewController {
             correctQuestionVC.moneyEarned = gameController.moneyEarned
+            if (gameController.QnAList.isEmpty) {
+                correctQuestionVC.gameWasWon = true
+            }
             //correctQuestionVC.currentGame = currentGame
             //correctQuestionVC.currentGameAnswers = currentGameAnswers
             //correctQuestionVC.currentGameQuestions = currentGameQuestions
         }
         if let endGameVC = segue.destination as? EndGameViewController {
-            endGameVC.mainLabelText = "Вы проиграли!\nНе расстраивайтесь!\nИграйте еще!"
+                endGameVC.mainLabelText = "Вы проиграли!\nНе расстраивайтесь!\nИграйте еще!"
             //endGameVC.currentGame = currentGame
             //endGameVC.currentGameAnswers = currentGameAnswers
             //endGameVC.currentGameQuestions = currentGameQuestions
@@ -140,7 +143,12 @@ class QuestionViewController: UIViewController {
     func displayNewQuestion() {
         gameController.questionsCount += 1
         gameController.randomQuestionNumber = Int.random(in: 0..<gameController.QnAList.count)
-        let currentQnA = CurrentQnA(question: QnAList[gameController.randomQuestionNumber]["Question"] as! String, answers: QnAList[gameController.randomQuestionNumber]["Answers"] as! Dictionary<String, Bool>)
+        let currentQnA = gameController.getCurrentQnA()
+        
+        print("qvc")
+        print(Array(currentQnA.question))
+        print(Array(currentQnA.answers))
+        
         mainQuestionLabel.text = currentQnA.question
         leftTopButton.setTitle(Array(currentQnA.answers)[0].key, for: .normal)
         leftBotButton.setTitle(Array(currentQnA.answers)[1].key, for: .normal)

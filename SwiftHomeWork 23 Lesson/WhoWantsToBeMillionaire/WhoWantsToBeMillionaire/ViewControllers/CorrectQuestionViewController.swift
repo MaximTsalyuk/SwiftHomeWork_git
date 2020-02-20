@@ -10,12 +10,17 @@ import UIKit
 
 class CorrectQuestionViewController: UIViewController {
     var moneyEarned: Int = 0
+    var gameWasWon: Bool = false
     @IBOutlet weak var mainLabel: UILabel!
     var currentGame: CurrentGame = CurrentGame()
+    @IBOutlet weak var nextQuestionButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (gameWasWon) {
+            nextQuestionButton.isEnabled = false
+        }
         self.navigationItem.setHidesBackButton(true, animated: true)
         mainLabel.text = "Вы выиграли уже \(moneyEarned) грн!"
     }
