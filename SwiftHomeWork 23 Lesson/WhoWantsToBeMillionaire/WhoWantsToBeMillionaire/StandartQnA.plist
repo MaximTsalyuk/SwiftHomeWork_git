@@ -3,154 +3,134 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>correctAnswer</key>
+		<integer>0</integer>
 		<key>Question</key>
 		<string>Сколько раз в сутки подзаводят куранты Спасской башни Кремля?</string>
 		<key>Answers</key>
-		<dict>
-			<key>Два</key>
-			<true/>
-			<key>Один</key>
-			<false/>
-			<key>Три</key>
-			<false/>
-			<key>Четыре</key>
-			<false/>
-		</dict>
+		<array>
+			<string>Два</string>
+			<string>Один</string>
+			<string>Три</string>
+			<string>Четыре</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
 		<string>Кто 1-м получил Нобелевскую премию по литературе?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Романист</key>
-			<false/>
-			<key>Драматург</key>
-			<false/>
-			<key>Поэт</key>
-			<true/>
-			<key>Эссеист</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Романист</string>
+			<string>Драматург</string>
+			<string>Поэт</string>
+			<string>Эссеист</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
 		<string>С какой буквы начинаются слова, опубликованные в 16-м томе последнего издания Большой советской энциклопедии?</string>
-		<key>Answers</key>
-		<dict>
-			<key>М</key>
-			<true/>
-			<key>Н</key>
-			<false/>
-			<key>О</key>
-			<false/>
-			<key>П</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>М</string>
+			<string>Н</string>
+			<string>О</string>
+			<string>П</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
 		<string>Кто из перечисленных был пажом во времена Екатерины II?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Д.И. Фонвизин</key>
-			<false/>
-			<key>Г.Р. Державин</key>
-			<false/>
-			<key>А.Н. Радищев</key>
-			<true/>
-			<key>Н.М. Карамзин</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Д.И. Фонвизин</string>
+			<string>Г.Р. Державин</string>
+			<string>А.Н. Радищев</string>
+			<string>Н.М. Карамзин</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>1</integer>
+		<key>question</key>
 		<string>Какой химический элемент назван в честь злого подземного гнома?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Гафний</key>
-			<false/>
-			<key>Кобальт</key>
-			<true/>
-			<key>Бериллий</key>
-			<false/>
-			<key>Теллур</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Гафний</string>
+			<string>Кобальт</string>
+			<string>Бериллий</string>
+			<string>Теллур</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
 		<string>В какой из этих столиц бывших союзных республик раньше появилось метро?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Тбилиси</key>
-			<true/>
-			<key>Ереван</key>
-			<false/>
-			<key>Баку</key>
-			<false/>
-			<key>Минск</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Тбилиси</string>
+			<string>Ереван</string>
+			<string>Баку</string>
+			<string>Минск</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>3</integer>
+		<key>question</key>
 		<string>Сколько морей омывают Балканский полуостров?</string>
-		<key>Answers</key>
-		<dict>
-			<key>3</key>
-			<false/>
-			<key>4</key>
-			<false/>
-			<key>5</key>
-			<false/>
-			<key>6</key>
-			<true/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>3</string>
+			<string>4</string>
+			<string>5</string>
+			<string>6</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
 		<string>Реки с каким названием нет на территории России?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Шея</key>
-			<false/>
-			<key>Уста</key>
-			<false/>
-			<key>Спина</key>
-			<true/>
-			<key>Палец</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Шея</string>
+			<string>Уста</string>
+			<string>Спина</string>
+			<string>Палец</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>0</integer>
+		<key>question</key>
 		<string>Что такое лобогрейка?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Жнейка</key>
-			<true/>
-			<key>Шапка</key>
-			<false/>
-			<key>Болезнь</key>
-			<false/>
-			<key>Печка</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Жнейка</string>
+			<string>Шапка</string>
+			<string>Болезнь</string>
+			<string>Печка</string>
+		</array>
 	</dict>
 	<dict>
-		<key>Question</key>
+		<key>correctAnswer</key>
+		<integer>2</integer>
+		<key>question</key>
 		<string>Какой вид кавалерии предназначался для боевых действий как в конном, так и в пешем строю?</string>
-		<key>Answers</key>
-		<dict>
-			<key>Кирасиры</key>
-			<false/>
-			<key>Уланы</key>
-			<false/>
-			<key>Драгуны</key>
-			<true/>
-			<key>Гусары</key>
-			<false/>
-		</dict>
+		<key>answers</key>
+		<array>
+			<string>Кирасиры</string>
+			<string>Уланы</string>
+			<string>Драгуны</string>
+			<string>Гусары</string>
+		</array>
 	</dict>
 </array>
 </plist>

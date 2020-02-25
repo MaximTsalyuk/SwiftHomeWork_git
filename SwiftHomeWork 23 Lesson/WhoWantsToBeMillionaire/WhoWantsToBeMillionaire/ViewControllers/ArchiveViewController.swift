@@ -35,13 +35,27 @@ class ArchiveViewController: UIViewController {
         let docsBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         //получение полного пути файла
         let customPlistURL = docsBaseURL.appendingPathComponent("PreviousGames.plist")
+        print(#function)
         NSArray(array: customArray).write(to: customPlistURL, atomically: true)
+        print(#function)
     }
 }
 
 
 extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //var customArrayCount = 0
+        
+        //gameArchive = customArray[0] as! [String : AnyObject]
+        
+        //print(gameArchive["mainGameInfo"]?["moneyEarned"]! == nil)
+        
+        //if (gameArchive["mainGameInfo"]?["moneyEarned"]! != nil) {
+        //    customArrayCount = customArray.count
+        //}
+        
+        //print(customArrayCount)
+        
         return customArray.count
     }
     
@@ -49,9 +63,12 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomTableViewCell
         cell = tableView.dequeueReusableCell(withIdentifier: "Cell_ID", for: indexPath) as! CustomTableViewCell
-        gameArchive = customArray[indexPath.row] as! [String : AnyObject]
-        cell.mainLabel.text = "\(gameArchive["mainGameInfo"]!["moneyEarned"]!!) - \(gameArchive["mainGameInfo"]!["questionsNumber"]!!) ответ"
-        cell.additionalLabel.text = "\(gameArchive["mainGameInfo"]!["date"]!!)"
+        gameArchive = customArray[indexPath.row] as? [String : AnyObject] ?? [:]
+        
+        if (gameArchive["mainGameInfo"]?["moneyEarned"] != nil && gameArchive["mainGameInfo"]?["date"] != nil && gameArchive["mainGameInfo"]?["questionsNumber"] != nil) {
+            cell.mainLabel.text = "\(String(describing: gameArchive["mainGameInfo"]!["moneyEarned"]!!)) - \(String(describing: gameArchive["mainGameInfo"]!["questionsNumber"]!!)) ответ"
+            cell.additionalLabel.text = "\(String(describing: gameArchive["mainGameInfo"]!["date"]!!))"
+        }
         return cell
     }
     
@@ -59,7 +76,7 @@ extension ArchiveViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let archiveDetailedVC = segue.destination as? ArchiveDetailedViewController {
             print("ci: \(currentIndexPath)")
-            archiveDetailedVC.gameArchive = customArray[currentIndexPath] as! [String : AnyObject]
+            archiveDetailedVC.gameArchive = customArray[currentIndexPath] as? [String : AnyObject] ?? [:]
         }
     }
     

@@ -29,8 +29,8 @@ class ArchiveDetailedViewController: UIViewController {
         
         
         var mainQuestionsViewText = "Ответы: \n"
-        let gameQuestions: NSArray = gameArchive["gameQuestionsArray"] as! NSArray
-        let gameAnswers: NSArray = gameArchive["gameAnswersArray"] as! NSArray
+        let gameQuestions: NSArray = gameArchive["gameQuestionsArray"] as? NSArray ?? []
+        let gameAnswers: NSArray = gameArchive["gameAnswersArray"] as? NSArray ?? []
         
         for index in 0..<gameQuestions.count {
             mainQuestionsViewText += "\(index + 1). \(gameQuestions[index]): \(gameAnswers[index])\n"

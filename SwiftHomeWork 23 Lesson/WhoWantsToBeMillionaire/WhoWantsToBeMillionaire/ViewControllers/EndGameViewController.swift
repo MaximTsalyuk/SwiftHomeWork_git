@@ -29,6 +29,17 @@ class EndGameViewController: UIViewController {
         print(Array(gameDict))
         let writeToPlist = WriteToPlistController()
         writeToPlist.writeToFile(gameDict: gameDict)
-        self.navigationController!.popToRootViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

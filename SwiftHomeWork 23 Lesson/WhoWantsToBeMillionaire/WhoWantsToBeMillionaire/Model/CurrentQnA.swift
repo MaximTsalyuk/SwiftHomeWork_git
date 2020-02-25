@@ -10,10 +10,12 @@ import Foundation
 
 class CurrentQnA {
     var question: String
-    var answers: Dictionary<String, Bool>
+    var answers: [String]
+    var correctAnswer: Int
     
-    init(question: String, answers: Dictionary<String, Bool>) {
+    init(question: String, answers: [String], correctAnswer: Int) {
         self.answers = answers
         self.question = question
+        self.correctAnswer = correctAnswer
     }
 }

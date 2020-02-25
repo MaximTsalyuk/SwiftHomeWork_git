@@ -9,6 +9,8 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var mainQuestionLabel: UILabel!
     @IBOutlet weak var leftTopButton: UIButton!
     @IBOutlet weak var leftBotButton: UIButton!
@@ -38,57 +40,53 @@ class QuestionViewController: UIViewController {
     }
     
     
-    @IBAction func leftTopButtonPressed(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        
-        let tag = sender.tag
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        resetAllButtons()
+        displayNewQuestion()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+        buttonPressed(tag: sender.tag)
+    }
+    
+    
+    
+    func buttonPressed (tag: Int) {
+        let buttonsArray = [leftTopButton, leftBotButton, rightTopButton, rightBotButton]
         
         if (gameController.questionProcessing(buttonTag: tag)) {
-            performSegue(withIdentifier: "correctAnswerSegue", sender: self)
+            buttonsArray[tag]?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.9)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                self.performSegue(withIdentifier: "correctAnswerSegue", sender: self)
+            })
         } else {
-            performSegue(withIdentifier: "inCorrectAnswerSegue", sender: self)
+            buttonsArray[tag]?.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.9)
+            buttonsArray[gameController.randomQuestionNumber]?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.9)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                self.performSegue(withIdentifier: "inCorrectAnswerSegue", sender: self)
+            })
         }
     }
     
     
-    @IBAction func leftBotButtonPressed(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+    func resetAllButtons () {
+        leftTopButton.backgroundColor = UIColor(#colorLiteral(red: 0.4431372549, green: 0.5725490196, blue: 0.9098039216, alpha: 0.9034674658))
+        leftBotButton.backgroundColor = UIColor(#colorLiteral(red: 0.4431372549, green: 0.5725490196, blue: 0.9098039216, alpha: 0.9034674658))
+        rightTopButton.backgroundColor = UIColor(#colorLiteral(red: 0.4431372549, green: 0.5725490196, blue: 0.9098039216, alpha: 0.9034674658))
+        leftBotButton.backgroundColor = UIColor(#colorLiteral(red: 0.4431372549, green: 0.5725490196, blue: 0.9098039216, alpha: 0.9034674658))
         
-        let tag = sender.tag
-        
-        if (gameController.questionProcessing(buttonTag: tag)) {
-            performSegue(withIdentifier: "correctAnswerSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "inCorrectAnswerSegue", sender: self)
-        }
-    }
-    
-    
-    @IBAction func rightTopButtonPressed(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        
-
-        let tag = sender.tag
-        
-        if (gameController.questionProcessing(buttonTag: tag)) {
-            performSegue(withIdentifier: "correctAnswerSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "inCorrectAnswerSegue", sender: self)
-        }
-    }
-    
-    
-    @IBAction func rightBotButtonPressed(_ sender: UIButton) {
-        sender.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        
-
-        let tag = sender.tag
-        
-        if (gameController.questionProcessing(buttonTag: tag)) {
-            performSegue(withIdentifier: "correctAnswerSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "inCorrectAnswerSegue", sender: self)
-        }
+        callButton.isEnabled = true
+        helpButton.isEnabled = true
     }
     
     
@@ -98,7 +96,7 @@ class QuestionViewController: UIViewController {
             if (gameController.QnAList.isEmpty) {
                 correctQuestionVC.gameWasWon = true
             }
-            //correctQuestionVC.currentGame = currentGame
+            correctQuestionVC.currentGame = gameController.currentGame
             //correctQuestionVC.currentGameAnswers = currentGameAnswers
             //correctQuestionVC.currentGameQuestions = currentGameQuestions
         }
@@ -141,6 +139,10 @@ class QuestionViewController: UIViewController {
     
     
     func displayNewQuestion() {
+        print(#function)
+        resetAllButtons()
+        
+        print(QnAList)
         gameController.questionsCount += 1
         gameController.randomQuestionNumber = Int.random(in: 0..<gameController.QnAList.count)
         let currentQnA = gameController.getCurrentQnA()
@@ -150,24 +152,34 @@ class QuestionViewController: UIViewController {
         print(Array(currentQnA.answers))
         
         mainQuestionLabel.text = currentQnA.question
-        leftTopButton.setTitle(Array(currentQnA.answers)[0].key, for: .normal)
-        leftBotButton.setTitle(Array(currentQnA.answers)[1].key, for: .normal)
-        rightTopButton.setTitle(Array(currentQnA.answers)[2].key, for: .normal)
-        rightBotButton.setTitle(Array(currentQnA.answers)[3].key, for: .normal)
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        displayNewQuestion()
+        
+        if (currentQnA.answers.count == 4) {
+            leftTopButton.setTitle(currentQnA.answers[0], for: .normal)
+            leftBotButton.setTitle(currentQnA.answers[1], for: .normal)
+            rightTopButton.setTitle(currentQnA.answers[2], for: .normal)
+            rightBotButton.setTitle(currentQnA.answers[3], for: .normal)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Answers array is corrupted!", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
     @IBAction func callButtonAction(_ sender: Any) {
+        callButton.isEnabled = false
+        helpButton.isEnabled = false
         randomHelpAction()
     }
     
     
     @IBAction func helpButtonAction(_ sender: Any) {
+        helpButton.isEnabled = false
+        callButton.isEnabled = false
         randomHelpAction()
     }
     
@@ -184,6 +196,12 @@ class QuestionViewController: UIViewController {
         } else if (randomButton == 4) {
             rightBotButton.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
         }
+        
+        view.isUserInteractionEnabled = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            self.view.isUserInteractionEnabled = true
+            self.resetAllButtons()
+        })
     }
     
     

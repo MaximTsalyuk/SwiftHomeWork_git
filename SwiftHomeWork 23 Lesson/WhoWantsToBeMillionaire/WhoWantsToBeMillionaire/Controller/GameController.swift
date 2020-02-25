@@ -13,7 +13,7 @@ class GameController {
     var questionsCount = 0
     var currentGame = CurrentGame()
     var QnAList: [Dictionary<String, AnyObject>] = []
-    var currentQnA = CurrentQnA(question: "", answers: [:])
+    var currentQnA = CurrentQnA(question: "", answers: [], correctAnswer: 0)
     
     
     var randomQuestionNumber: Int = 0
@@ -25,7 +25,7 @@ class GameController {
         
         print(QnAList)
         
-        if (Array(currentQnA.answers)[buttonTag].value == true) {
+        if (buttonTag == currentQnA.correctAnswer) {
             if (moneyEarned == 0) {
                 moneyEarned = 500
             } else {
@@ -39,7 +39,7 @@ class GameController {
             isAnswerCorrect = false
         }
         
-        updateCurrentGameStatus(date: Date(), questionsNumber: questionsCount, moneyEarned: moneyEarned, currentQuestion: currentQnA.question, currentAnswer: Array(currentQnA.answers)[buttonTag].key)
+        updateCurrentGameStatus(date: Date(), questionsNumber: questionsCount, moneyEarned: moneyEarned, currentQuestion: currentQnA.question, currentAnswer: currentQnA.answers[buttonTag])
         
         QnAList.remove(at: randomQuestionNumber)
         
@@ -48,7 +48,7 @@ class GameController {
     
     
     func getCurrentQnA () -> CurrentQnA {
-        currentQnA = CurrentQnA(question: QnAList[randomQuestionNumber]["Question"] as! String, answers: QnAList[randomQuestionNumber]["Answers"] as! Dictionary<String, Bool>)
+        currentQnA = CurrentQnA(question: QnAList[randomQuestionNumber]["question"] as? String ?? "", answers: QnAList[randomQuestionNumber]["answers"] as? [String] ?? [], correctAnswer: QnAList[randomQuestionNumber]["correctAnswer"] as? Int ?? 0)
         
         return currentQnA
     }
